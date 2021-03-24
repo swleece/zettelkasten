@@ -6,4 +6,5 @@
 , theme = "teal"
 -- This is used in the "edit" button
 , editUrl = Some "https://swleece.github.io/zettelkasten/edit/master"
+, plugins = ["neurondhall", "links", "tags", "uptree"]
 }
