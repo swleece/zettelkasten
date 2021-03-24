@@ -3,8 +3,8 @@
 , author = Some "Stephen Leece"
 , siteBaseUrl = Some "https://swleece.github.io/zettelkasten/"
 -- List of color names: https://semantic-ui.com/usage/theming.html#sitewide-defaults
-, theme = "teal"
+-- , theme = "teal"
 -- This is used in the "edit" button
 , editUrl = Some "https://swleece.github.io/zettelkasten/edit/master"
-, plugins = ["neurondhall", "links", "tags", "uptree"]
+-- , plugins = ["neurondhall", "links", "tags", "uptree"]
 }
