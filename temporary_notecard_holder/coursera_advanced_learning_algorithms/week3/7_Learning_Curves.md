@@ -21,4 +21,4 @@ amounts of data in order to generate curve.
 {{ direct link to another card }}
 
 ## Tags
-[[ tag ]] 
+[[ Machine Learning ]] 

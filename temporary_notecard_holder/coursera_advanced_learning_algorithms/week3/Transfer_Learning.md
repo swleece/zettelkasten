@@ -1,7 +1,7 @@
-9
+11
 
 ## Title
-Iterative loop 
+Transfer Learning: using data from a different task
 
 ## Description
 ( additional context, supporting information, or an answer )
@@ -13,4 +13,4 @@ Iterative loop
 {{ direct link to another card }}
 
 ## Tags
-[[ Machine Learning ]] 
+[[ tag ]] 
