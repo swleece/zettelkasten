@@ -15,6 +15,21 @@ Get generalizability by computing cost associated with the test set.
 
 ## Additional Notes
 
+x - Jcv
+. - Jtrain
+
+ | x                x .
+ |  x              x  .
+ |   x            x  .
+ |     x       x    .
+J|         x       .
+ |                .
+ |              .
+ |           .
+ | .    .       
+ |                     
+ _______________________
+  lambda
 
 
 

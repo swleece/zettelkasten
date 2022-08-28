@@ -1,4 +1,4 @@
-<id>
+9
 
 ## Title
 ( main idea or question )
@@ -13,4 +13,4 @@
 {{ direct link to another card }}
 
 ## Tags
-[[ tag ]] 
+[[ Machine Learning ]] 
