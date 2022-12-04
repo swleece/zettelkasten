@@ -1,0 +1,222 @@
+{
+  "main": {
+    "id": "64fd823b0775046a",
+    "type": "split",
+    "children": [
+      {
+        "id": "5a1f13f02003aa9b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "35c517455ed63060",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "daily/2022-11-27.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "31e044c95ef17e45",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/Map of Contents.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "51c23f46c3d343fb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/2022 Zettelkasten Obsidian Workflow ⚡️ Simple Set Up - Vicky Zhao.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "111a5eaa7f6df4be",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Obsidian/Note Taxonomy.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8b0bc689ec88d33f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Obsidian/Obsidian Setup todo.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c141009b58063a88",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "GlobalTasks.md.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "de93b12a17102f11",
+    "type": "split",
+    "children": [
+      {
+        "id": "c5a0d79197f0c5bc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3e73f39d9e77949d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1e7e13c4db230b2b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d83fa97e7ee04c3a",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "b8ec590f60c4f8be",
+    "type": "split",
+    "children": [
+      {
+        "id": "ef24926cbdffa823",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a4ae6cbe29691915",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "General/2022 Zettelkasten Obsidian Workflow ⚡️ Simple Set Up - Vicky Zhao.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f50d876c7b4aaaae",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "General/2022 Zettelkasten Obsidian Workflow ⚡️ Simple Set Up - Vicky Zhao.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "cf1ce7dc852d6ffd",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "63a3ea64c0e0ae7a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "General/2022 Zettelkasten Obsidian Workflow ⚡️ Simple Set Up - Vicky Zhao.md"
+              }
+            }
+          },
+          {
+            "id": "a072a2c27b6d7652",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "51c23f46c3d343fb",
+  "lastOpenFiles": [
+    "Obsidian/= BryanJenks Zettelkasten workflow.md",
+    "Obsidian/Note Taxonomy.md",
+    "Obsidian/Obsidian Setup todo.md",
+    "GlobalTasks.md.md",
+    "General/Untitled 2.md",
+    "General/Untitled 1.md",
+    "General/Untitled.md",
+    "General/2022 Zettelkasten Obsidian Workflow ⚡️ Simple Set Up - Vicky Zhao.md",
+    "Templates/daily.md",
+    "Templates/Course Notes.md"
+  ]
+}

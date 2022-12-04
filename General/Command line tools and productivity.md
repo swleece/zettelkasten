@@ -1,0 +1,12 @@
+fzf
+bat
+bat-extras
+ripgrep
+ack
+cmatrix
+curl
+git-delta
+tree
+the_silver_searcher
+tmux
+numi

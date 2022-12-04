@@ -1,0 +1,11 @@
+{
+  "vimMode": true,
+  "showLineNumber": true,
+  "rightToLeft": false,
+  "showFrontmatter": false,
+  "attachmentFolderPath": "Attachments",
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "General",
+  "tabSize": 4
+}
