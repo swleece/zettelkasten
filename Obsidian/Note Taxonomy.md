@@ -1,4 +1,6 @@
 ---
+date: 2022-12-06
+time: 08:33
 tags: obsidian
 ---
 [[Obsidian]]
@@ -77,6 +79,23 @@ Makes it easy to subsearch, filter, and create new notes that are prefilled with
 #### Potential Methods
 - include input type and date at beginning of file name
 	- enables filtering while using the quick switcher
+
+
+
+## Current Method
+1. Tags for date, time, note_maturity, input type
+	- note_maturity tag uses emojis ( 🌱 , 🌿 , 🌲 )
+	- date tag, time tag
+	- note content type (summary of content (e.g. podcast, book, etc.), idea, question)
+2. Dataview queries
+	- for timelines
+	- for finding and updating immature notes
+3. Use Notes for MOC's
+	- avoid using a tag for anything that could potentially one day be a note of it's own
+	- 
+4. Idea compass at bottom of notes
+	- prompts me to think of connections with other cards I might not otherwise think to tag
+
 
 
 

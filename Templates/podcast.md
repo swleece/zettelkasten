@@ -2,13 +2,9 @@
 date: {{date}}
 time: {{time}}
 note_maturity: 🌱
-tags: 
+tags: podcast
+link: 
 ---
-[[Machine Learning]]
-
-
-
-
 
 
 

@@ -5,5 +5,9 @@
   "calendar",
   "cm-editor-syntax-highlight-obsidian",
   "obsidian-kanban",
-  "supercharged-links-obsidian"
+  "supercharged-links-obsidian",
+  "obsidian-relative-line-numbers",
+  "url-into-selection",
+  "recent-files-obsidian",
+  "templater-obsidian"
 ]

@@ -1,4 +1,6 @@
 ---
+date: 2022-12-06
+time: 08:33
 tags: youtube, zettelkasten, notes
 
 ---
@@ -124,21 +126,21 @@ Random note traversal for curating and polishing notes
 
 #### Community plugins
 - Codemirror matchbrackets.js community plugin for improving vim bindings
-- Cycle through Panes ctrl-tab
+- Cycle through Panes ctrl-tab (seems to be included by default now)
 - File explorer note count
 - Metatable : more aesthetic meta data
 - Mindmap : tree view of outlines
 - Natural Language Dates
 - Pane Relief (may by included now)
-- Paste link in selection
-- Relative line numbers
-- Recent Files
+- ✅ Paste link in selection
+- ✅ Relative line numbers ✅
+- ✅ Recent Files
 - Review : add a link to the current note to a daily note on a future date 
-- Sliding Panes
-- Supercharged links
+- Sliding Panes <- now built into obsidian as command : Toggle stacked panes
+- ✅ Supercharged links
 - Open Random Note
 - Tag Wrangler : rename every instance of tag
-- Templater :  
+- ✅ Templater :  check out github discussions for cool examples of usages
 - Zoom : zooms into particular areas of a note, useful for outline like writing and input
 - MathPix
 - 

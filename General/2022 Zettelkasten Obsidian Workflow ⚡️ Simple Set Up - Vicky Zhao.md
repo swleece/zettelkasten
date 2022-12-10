@@ -1,3 +1,8 @@
+---
+date: 2022-12-06
+time: 08:33
+---
+
 Overall process:
 1. capture notes
 	1. fleeting notes

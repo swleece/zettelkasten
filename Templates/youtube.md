@@ -2,22 +2,9 @@
 date: {{date}}
 time: {{time}}
 note_maturity: 🌱
-tags: 
+tags: youtube
+link: 
 ---
-[[Machine Learning]]
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
