@@ -9,5 +9,10 @@
   "obsidian-relative-line-numbers",
   "url-into-selection",
   "recent-files-obsidian",
-  "templater-obsidian"
+  "templater-obsidian",
+  "obsidian-emoji-toolbar",
+  "obsidian-tracker",
+  "obsidian-plugin-update-tracker",
+  "janitor",
+  "obsidian-style-settings"
 ]

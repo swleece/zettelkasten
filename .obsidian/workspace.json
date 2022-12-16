@@ -8,11 +8,39 @@
         "type": "tabs",
         "children": [
           {
-            "id": "6891e41d692c9656",
+            "id": "71f00d6f07be1d79",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Obsidian/Local Obsidian Setup.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "929ee7910bc33072",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/Machine Learning Engineering - Andriy Burkov.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "267294d845244602",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/The Hundred-Page Machine Learning Book - Andriy Burkov.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -27,7 +55,7 @@
       {
         "id": "c5a0d79197f0c5bc",
         "type": "tabs",
-        "dimension": 59.166666666666664,
+        "dimension": 67.21991701244814,
         "children": [
           {
             "id": "3e73f39d9e77949d",
@@ -67,7 +95,7 @@
       {
         "id": "c7034ae53e5ab2f7",
         "type": "tabs",
-        "dimension": 40.833333333333336,
+        "dimension": 32.780082987551864,
         "children": [
           {
             "id": "15a0251d5e796ba5",
@@ -81,7 +109,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 245.50260543823242
+    "width": 323.5026054382324
   },
   "right": {
     "id": "b8ec590f60c4f8be",
@@ -97,6 +125,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Obsidian/Local Obsidian Setup.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,6 +142,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Obsidian/Local Obsidian Setup.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +164,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Obsidian/Local Obsidian Setup.md"
+              }
             }
           },
           {
@@ -153,17 +185,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "6891e41d692c9656",
+  "active": "71f00d6f07be1d79",
   "lastOpenFiles": [
-    "daily/2022-11-19.md",
-    "Timelines/Exercise.md",
-    "daily/2022-12-10.md",
-    "Timelines/Journal.md",
-    "templater/testtemplater.md",
-    "Obsidian/= BryanJenks Zettelkasten workflow.md",
-    "Templates/daily.md",
-    "daily/2022-12-09.md",
-    "Templates/Course Notes.md",
-    "Templates/podcast.md"
+    "daily/2022-12-14.md",
+    "Obsidian/Local Obsidian Setup.md",
+    "General/Machine Learning Engineering - Andriy Burkov.md",
+    "General/Obsidian.md",
+    "README.md.md",
+    "General/The Case Against Sugar - Gary Taubes.md",
+    "General/The Hundred-Page Machine Learning Book - Andriy Burkov.md",
+    "Attachments/theMLbook.pdf",
+    "Attachments/theMLbook 1.pdf",
+    "Templates/book.md"
   ]
 }

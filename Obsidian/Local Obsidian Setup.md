@@ -12,6 +12,7 @@ tags: obsidian, local_environment, productivity, pkm
 | cmd-L            | create Task                               |
 | cmd-;            | mark Task done                            |
 | pipe, tab, enter | create table using Advanced Tables plugin |
+| opt-;            | open emoji picker                         |
 |                  |                                           |
 
 
