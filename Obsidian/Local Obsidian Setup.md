@@ -50,7 +50,13 @@ tags: obsidian, local_environment, productivity, pkm
 - Editor Syntax Highlights
 - [Templater](https://silentvoid13.github.io/Templater/)
 - supercharged links
-- 
+
+Installed but not configured:
+- obsidian-emoji-toolbar : quick emoji picker
+- obsidian-tracker : visualize metadata
+- obsidian-plugin-update-tracker : bottom right, automates updating plugins
+- janitor : scan files for orphans
+- obsidian-style-settings : enable css
 
 
 ### Plugins
