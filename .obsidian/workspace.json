@@ -4,40 +4,40 @@
     "type": "split",
     "children": [
       {
-        "id": "ef7cb85305f8c59c",
+        "id": "a1283c4e2198f161",
         "type": "tabs",
         "children": [
           {
-            "id": "acd1a3c3426aa32a",
+            "id": "bbcdc3e93c01ebb5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Obsidian/Local Obsidian Setup.md",
+                "file": "General/Ensemble.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "87a4a0800809c08b",
+            "id": "9fb38844f8eb3d67",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Obsidian/& Map of Contents (MOC's).md",
+                "file": "Article/Introduction to Ensembling_Stacking in Python.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "da9ac858dc413979",
+            "id": "ae4a1c625dc60f86",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General/Mermaid test.md",
+                "file": "Personal Dashboard.md",
                 "mode": "preview",
                 "source": false
               }
@@ -56,18 +56,8 @@
       {
         "id": "c5a0d79197f0c5bc",
         "type": "tabs",
-        "dimension": 67.21991701244814,
+        "dimension": 76.95852534562212,
         "children": [
-          {
-            "id": "3e73f39d9e77949d",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {
-                "sortOrder": "alphabetical"
-              }
-            }
-          },
           {
             "id": "1e7e13c4db230b2b",
             "type": "leaf",
@@ -84,6 +74,24 @@
             }
           },
           {
+            "id": "3e73f39d9e77949d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "a072a2c27b6d7652",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
             "id": "d83fa97e7ee04c3a",
             "type": "leaf",
             "state": {
@@ -97,16 +105,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Obsidian/& Map of Contents (MOC's).md"
+                "file": "Article/Introduction to Ensembling_Stacking in Python.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
-        "id": "c7034ae53e5ab2f7",
+        "id": "35912f04a48ffb33",
         "type": "tabs",
-        "dimension": 32.780082987551864,
+        "dimension": 23.04147465437788,
         "children": [
           {
             "id": "15a0251d5e796ba5",
@@ -120,7 +129,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 323.5026054382324
+    "width": 326.5
   },
   "right": {
     "id": "b8ec590f60c4f8be",
@@ -136,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsidian/& Map of Contents (MOC's).md",
+                "file": "Article/Introduction to Ensembling_Stacking in Python.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -153,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Obsidian/& Map of Contents (MOC's).md",
+                "file": "Article/Introduction to Ensembling_Stacking in Python.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -169,34 +178,39 @@
                 "useHierarchy": true
               }
             }
-          },
-          {
-            "id": "a072a2c27b6d7652",
-            "type": "leaf",
-            "state": {
-              "type": "calendar",
-              "state": {}
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
     "width": 300,
     "collapsed": true
   },
-  "active": "3e73f39d9e77949d",
+  "left-ribbon": {
+    "hiddenItems": {
+      "templater-obsidian:Templater": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "janitor:Janitor: scan vault": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
+    }
+  },
+  "active": "9fb38844f8eb3d67",
   "lastOpenFiles": [
-    "Books/The Case Against Sugar - Gary Taubes.md",
-    "Obsidian/Local Obsidian Setup.md",
-    "General/Mermaid test.md",
-    "Obsidian/Obsidian Setup todo.md",
-    "GlobalTasks.md.md",
-    "Books/Machine Learning Engineering - Andriy Burkov.md",
-    "Books/The Hundred-Page Machine Learning Book - Andriy Burkov.md",
-    "output_39_0.png.md",
-    "README.md.md",
-    "General/Obsidian.md"
+    "General/Ensemble.md",
+    "Personal Dashboard.md",
+    "Templates/article.md",
+    "Templates/youtube.md",
+    "Templates/Thought Idea.md",
+    "Templates/podcast.md",
+    "Templates/daily.md",
+    "Templates/Course Notes.md",
+    "Templates/book.md",
+    "daily/2023-01-17.md"
   ]
 }

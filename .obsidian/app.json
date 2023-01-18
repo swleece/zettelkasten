@@ -2,10 +2,12 @@
   "vimMode": true,
   "showLineNumber": true,
   "rightToLeft": false,
-  "showFrontmatter": false,
+  "showFrontmatter": true,
   "attachmentFolderPath": "Attachments",
   "alwaysUpdateLinks": true,
   "newFileLocation": "folder",
   "newFileFolderPath": "General",
-  "tabSize": 4
+  "tabSize": 4,
+  "readableLineLength": true,
+  "spellcheck": true
 }

@@ -28,11 +28,15 @@ not done
 
 ##### general list
 - [x] #task Complete Machine Learning specialization Coursera [[Machine Learning]] 🔼 📅 2022-12-04 ✅ 2022-11-25
-- [ ] #task get van smogged
+- [x] #task get van smogged ✅ 2023-01-06
 - [x] #task pay toll 📅 2022-11-25 ✅ 2022-11-25
 
 
-
+#### Climbing 🧗🏻 
+```tasks
+not done
+tags include climbing
+```
 
 ---
 ### Done

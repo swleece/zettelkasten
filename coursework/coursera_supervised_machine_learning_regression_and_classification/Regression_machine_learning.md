@@ -25,7 +25,6 @@ In this lab we will make use of:
 - Matplotlib, a popular library for plotting data
 - local plotting routines in the lab_utils_uni.py file in the local directory
 
-
 ```python
 import numpy as np
 %matplotlib widget

@@ -2,4 +2,4 @@
 - [ ] #task update templates to include immature tag, date tag, input strategy #obsidian
 - [ ] #task look into a way for doing spaced repetition, probably a tag #obsidian 
 - [ ] #task consider using a tag for MOC's #obsidian 
-- [ ] #task look into Jenks' plugin recommendations for obsidian usability #obsidian 
+- [x] #task look into Jenks' plugin recommendations for obsidian usability #obsidian ✅ 2022-12-18

@@ -1,6 +1,182 @@
 {
   "recentFiles": [
     {
+      "basename": "Introduction to Ensembling_Stacking in Python",
+      "path": "Article/Introduction to Ensembling_Stacking in Python.md"
+    },
+    {
+      "basename": "Ensemble",
+      "path": "General/Ensemble.md"
+    },
+    {
+      "basename": "Personal Dashboard",
+      "path": "Personal Dashboard.md"
+    },
+    {
+      "basename": "article",
+      "path": "Templates/article.md"
+    },
+    {
+      "basename": "youtube",
+      "path": "Templates/youtube.md"
+    },
+    {
+      "basename": "Thought Idea",
+      "path": "Templates/Thought Idea.md"
+    },
+    {
+      "basename": "podcast",
+      "path": "Templates/podcast.md"
+    },
+    {
+      "basename": "daily",
+      "path": "Templates/daily.md"
+    },
+    {
+      "basename": "Course Notes",
+      "path": "Templates/Course Notes.md"
+    },
+    {
+      "basename": "book",
+      "path": "Templates/book.md"
+    },
+    {
+      "basename": "2023-01-17",
+      "path": "daily/2023-01-17.md"
+    },
+    {
+      "basename": "2023-01-16",
+      "path": "daily/2023-01-16.md"
+    },
+    {
+      "basename": "2023-01-11",
+      "path": "daily/2023-01-11.md"
+    },
+    {
+      "basename": "personal climbing shoe sizes",
+      "path": "climbing/personal climbing shoe sizes.md"
+    },
+    {
+      "basename": "2023-01-12",
+      "path": "daily/2023-01-12.md"
+    },
+    {
+      "basename": "2023-01-14",
+      "path": "daily/2023-01-14.md"
+    },
+    {
+      "basename": "2023-01-04",
+      "path": "daily/2023-01-04.md"
+    },
+    {
+      "basename": "README.md",
+      "path": "README.md.md"
+    },
+    {
+      "basename": "Untitled",
+      "path": "General/Untitled.md"
+    },
+    {
+      "basename": "Resolutions for 2023",
+      "path": "General/Resolutions for 2023.md"
+    },
+    {
+      "basename": "2022-12-10",
+      "path": "daily/2022-12-10.md"
+    },
+    {
+      "basename": "2022-12-09",
+      "path": "daily/2022-12-09.md"
+    },
+    {
+      "basename": "2022-12-20",
+      "path": "daily/2022-12-20.md"
+    },
+    {
+      "basename": "2022-12-18",
+      "path": "daily/2022-12-18.md"
+    },
+    {
+      "basename": "2022-12-15",
+      "path": "daily/2022-12-15.md"
+    },
+    {
+      "basename": "2022-12-14",
+      "path": "daily/2022-12-14.md"
+    },
+    {
+      "basename": "2022-12-23",
+      "path": "daily/2022-12-23.md"
+    },
+    {
+      "basename": "GlobalTasks.md",
+      "path": "GlobalTasks.md.md"
+    },
+    {
+      "basename": "25_Clustering_k_means",
+      "path": "coursework/coursera_unsupervised_learning_recommenders_reinforcement_learning/week1/25_Clustering_k_means.md"
+    },
+    {
+      "basename": "Mark Rober youtube formula",
+      "path": "General/Mark Rober youtube formula.md"
+    },
+    {
+      "basename": "Two wheeled riding skill level",
+      "path": "General/Two wheeled riding skill level.md"
+    },
+    {
+      "basename": "Machine Learning",
+      "path": "Map_of_Content/Machine Learning.md"
+    },
+    {
+      "basename": "Motorcycling",
+      "path": "General/Motorcycling.md"
+    },
+    {
+      "basename": "Map of Contents",
+      "path": "General/Map of Contents.md"
+    },
+    {
+      "basename": "K-means Clustering",
+      "path": "coursework/coursera_unsupervised_learning_recommenders_reinforcement_learning/week1/K-means Clustering.md"
+    },
+    {
+      "basename": "thisiscatcommand app",
+      "path": "General/thisiscatcommand app.md"
+    },
+    {
+      "basename": "2022-12-26",
+      "path": "daily/2022-12-26.md"
+    },
+    {
+      "basename": "Tenso",
+      "path": "General/Tenso.md"
+    },
+    {
+      "basename": "Svelte",
+      "path": "General/Svelte.md"
+    },
+    {
+      "basename": "Sveltekit",
+      "path": "General/Sveltekit.md"
+    },
+    {
+      "basename": "Keras",
+      "path": "General/Keras.md"
+    },
+    {
+      "basename": "Local Obsidian Setup",
+      "path": "Obsidian/Local Obsidian Setup.md"
+    },
+    {
+      "basename": "ChatGPT Applications",
+      "path": "General/ChatGPT Applications.md"
+    },
+    {
+      "basename": "Mermaid test",
+      "path": "General/Mermaid test.md"
+    },
+    {
       "basename": "& Map of Contents (MOC's)",
       "path": "Obsidian/& Map of Contents (MOC's).md"
     },
@@ -9,20 +185,8 @@
       "path": "Books/The Case Against Sugar - Gary Taubes.md"
     },
     {
-      "basename": "Local Obsidian Setup",
-      "path": "Obsidian/Local Obsidian Setup.md"
-    },
-    {
-      "basename": "Mermaid test",
-      "path": "General/Mermaid test.md"
-    },
-    {
       "basename": "Obsidian Setup todo",
       "path": "Obsidian/Obsidian Setup todo.md"
-    },
-    {
-      "basename": "GlobalTasks.md",
-      "path": "GlobalTasks.md.md"
     },
     {
       "basename": "Machine Learning Engineering - Andriy Burkov",
@@ -35,90 +199,6 @@
     {
       "basename": "output_39_0.png",
       "path": "output_39_0.png.md"
-    },
-    {
-      "basename": "README.md",
-      "path": "README.md.md"
-    },
-    {
-      "basename": "Obsidian",
-      "path": "General/Obsidian.md"
-    },
-    {
-      "basename": "2022-12-15",
-      "path": "daily/2022-12-15.md"
-    },
-    {
-      "basename": "2022-12-14",
-      "path": "daily/2022-12-14.md"
-    },
-    {
-      "basename": "theMLbook",
-      "path": "Attachments/theMLbook.pdf"
-    },
-    {
-      "basename": "theMLbook 1",
-      "path": "Attachments/theMLbook 1.pdf"
-    },
-    {
-      "basename": "book",
-      "path": "Templates/book.md"
-    },
-    {
-      "basename": "podcast",
-      "path": "Templates/podcast.md"
-    },
-    {
-      "basename": "daily",
-      "path": "Templates/daily.md"
-    },
-    {
-      "basename": "Thought Idea",
-      "path": "Templates/Thought Idea.md"
-    },
-    {
-      "basename": "Course Notes",
-      "path": "Templates/Course Notes.md"
-    },
-    {
-      "basename": "Machine Learning",
-      "path": "General/Machine Learning.md"
-    },
-    {
-      "basename": "2022-12-10",
-      "path": "daily/2022-12-10.md"
-    },
-    {
-      "basename": "2022-11-19",
-      "path": "daily/2022-11-19.md"
-    },
-    {
-      "basename": "Exercise",
-      "path": "Timelines/Exercise.md"
-    },
-    {
-      "basename": "Journal",
-      "path": "Timelines/Journal.md"
-    },
-    {
-      "basename": "testtemplater",
-      "path": "templater/testtemplater.md"
-    },
-    {
-      "basename": "= BryanJenks Zettelkasten workflow",
-      "path": "Obsidian/= BryanJenks Zettelkasten workflow.md"
-    },
-    {
-      "basename": "2022-12-09",
-      "path": "daily/2022-12-09.md"
-    },
-    {
-      "basename": "youtube",
-      "path": "Templates/youtube.md"
-    },
-    {
-      "basename": "2022 Zettelkasten Obsidian Workflow ⚡️ Simple Set Up - Vicky Zhao",
-      "path": "General/2022 Zettelkasten Obsidian Workflow ⚡️ Simple Set Up - Vicky Zhao.md"
     }
   ],
   "omittedPaths": [],
