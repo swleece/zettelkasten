@@ -511,105 +511,6 @@ __export(main_exports, {
 });
 module.exports = __toCommonJS(main_exports);
 
-// src/parser/feedParser.ts
-var import_obsidian = require("obsidian");
-var FeedParser = class {
-  constructor(feed) {
-    this.feed = feed;
-  }
-  findItemByTitle(title, url) {
-    return __async(this, null, function* () {
-      const body = yield this.parseFeed(url);
-      const items = body.querySelectorAll("item");
-      const item = Array.from(items).find((item2) => {
-        const parsed = this.parseItem(item2);
-        return parsed.title === title;
-      });
-      if (!item) {
-        throw new Error("Could not find episode");
-      }
-      const episode = this.parseItem(item);
-      const feed = yield this.getFeed(url);
-      if (!episode.artworkUrl) {
-        episode.artworkUrl = feed.artworkUrl;
-      }
-      if (!episode.podcastName) {
-        episode.podcastName = feed.title;
-      }
-      if (!episode.feedUrl) {
-        episode.feedUrl = feed.url;
-      }
-      return episode;
-    });
-  }
-  getEpisodes(url) {
-    return __async(this, null, function* () {
-      const body = yield this.parseFeed(url);
-      return this.parsePage(body);
-    });
-  }
-  getFeed(url) {
-    return __async(this, null, function* () {
-      var _a;
-      const body = yield this.parseFeed(url);
-      const titleEl = body.querySelector("title");
-      const linkEl = body.querySelector("link");
-      const itunesImageEl = body.querySelector("image");
-      if (!titleEl || !linkEl) {
-        throw new Error("Invalid RSS feed");
-      }
-      const title = titleEl.textContent || "";
-      const artworkUrl = (itunesImageEl == null ? void 0 : itunesImageEl.getAttribute("href")) || ((_a = itunesImageEl == null ? void 0 : itunesImageEl.querySelector("url")) == null ? void 0 : _a.textContent) || "";
-      return {
-        title,
-        url,
-        artworkUrl
-      };
-    });
-  }
-  parsePage(page) {
-    const items = page.querySelectorAll("item");
-    return Array.from(items).map(this.parseItem.bind(this));
-  }
-  parseItem(item) {
-    var _a, _b, _c, _d;
-    const titleEl = item.querySelector("title");
-    const streamUrlEl = item.querySelector("enclosure");
-    const linkEl = item.querySelector("link");
-    const descriptionEl = item.querySelector("description");
-    const pubDateEl = item.querySelector("pubDate");
-    const itunesImageEl = item.querySelector("image");
-    if (!titleEl || !streamUrlEl || !pubDateEl) {
-      console.log(titleEl, streamUrlEl, linkEl, descriptionEl, pubDateEl);
-      throw new Error("Invalid RSS feed");
-    }
-    const title = titleEl.textContent || "";
-    const streamUrl = streamUrlEl.getAttribute("url") || "";
-    const url = (linkEl == null ? void 0 : linkEl.textContent) || "";
-    const description = (descriptionEl == null ? void 0 : descriptionEl.textContent) || "";
-    const pubDate = new Date(pubDateEl.textContent);
-    const artworkUrl = (itunesImageEl == null ? void 0 : itunesImageEl.getAttribute("href")) || ((_a = this.feed) == null ? void 0 : _a.artworkUrl);
-    return {
-      title,
-      streamUrl,
-      url: url || ((_b = this.feed) == null ? void 0 : _b.url) || "",
-      description,
-      podcastName: ((_c = this.feed) == null ? void 0 : _c.title) || "",
-      artworkUrl,
-      episodeDate: pubDate,
-      feedUrl: ((_d = this.feed) == null ? void 0 : _d.url) || ""
-    };
-  }
-  parseFeed(feedUrl) {
-    return __async(this, null, function* () {
-      const req = yield (0, import_obsidian.requestUrl)({ url: feedUrl });
-      const dp = new DOMParser();
-      const body = dp.parseFromString(req.text, "text/xml");
-      return body;
-    });
-  }
-};
-
 // node_modules/svelte/internal/index.mjs
 function noop() {
 }
@@ -1225,7 +1126,7 @@ function writable(value, start = noop) {
 }
 
 // src/store/index.ts
-var import_obsidian2 = require("obsidian");
+var import_obsidian = require("obsidian");
 var plugin = writable();
 var currentTime = writable(0);
 var duration = writable(0);
@@ -1312,10 +1213,15 @@ var downloadedEpisodes = function() {
     addEpisode: (episode, filePath, size) => {
       update2((downloadedEpisodes2) => {
         const podcastEpisodes = downloadedEpisodes2[episode.podcastName] || [];
-        podcastEpisodes.push(__spreadProps(__spreadValues({}, episode), {
-          filePath,
-          size
-        }));
+        const idx = podcastEpisodes.findIndex((ep) => ep.title === episode.title);
+        if (idx !== -1) {
+          podcastEpisodes[idx] = __spreadProps(__spreadValues({}, episode), { filePath, size });
+        } else {
+          podcastEpisodes.push(__spreadProps(__spreadValues({}, episode), {
+            filePath,
+            size
+          }));
+        }
         downloadedEpisodes2[episode.podcastName] = podcastEpisodes;
         return downloadedEpisodes2;
       });
@@ -1329,7 +1235,7 @@ var downloadedEpisodes = function() {
         if (removeFile) {
           try {
             const file = app.vault.getAbstractFileByPath(filePath);
-            if (file instanceof import_obsidian2.TFile) {
+            if (file instanceof import_obsidian.TFile) {
               app.vault.delete(file);
             }
           } catch (error) {
@@ -1389,13 +1295,44 @@ var favorites = writable({
   shouldEpisodeRemoveAfterPlay: false,
   shouldRepeat: false
 });
-var localFiles = writable({
-  icon: "folder",
-  name: "Local Files",
-  episodes: [],
-  shouldEpisodeRemoveAfterPlay: false,
-  shouldRepeat: false
-});
+var localFiles = function() {
+  const store = writable({
+    icon: "folder",
+    name: "Local Files",
+    episodes: [],
+    shouldEpisodeRemoveAfterPlay: false,
+    shouldRepeat: false
+  });
+  const { subscribe: subscribe2, update: update2, set } = store;
+  return {
+    subscribe: subscribe2,
+    update: update2,
+    set,
+    getLocalEpisode: (title) => {
+      const ep = get_store_value(store).episodes.find((ep2) => ep2.title === title);
+      return ep;
+    },
+    updateStreamUrl: (title, newUrl) => {
+      store.update((playlist) => {
+        const idx = playlist.episodes.findIndex((ep) => ep.title === title);
+        if (idx !== -1)
+          playlist.episodes[idx].streamUrl = newUrl;
+        return playlist;
+      });
+    },
+    addEpisode: (episode) => {
+      store.update((playlist) => {
+        const idx = playlist.episodes.findIndex((ep) => ep.title === episode.title);
+        if (idx !== -1) {
+          playlist.episodes[idx] = episode;
+        } else {
+          playlist.episodes.push(episode);
+        }
+        return playlist;
+      });
+    }
+  };
+}();
 var playlists = writable({});
 var podcastView = writable();
 var viewState = function() {
@@ -1419,7 +1356,7 @@ function addEpisodeToQueue(episode) {
 }
 
 // src/main.ts
-var import_obsidian18 = require("obsidian");
+var import_obsidian22 = require("obsidian");
 
 // src/utility/formatSeconds.ts
 function formatSeconds(seconds, format2) {
@@ -1435,6 +1372,11 @@ function encodePodnotesURI(title, feedUrl, time) {
     url.searchParams.set("time", time.toString());
   }
   return url;
+}
+
+// src/utility/isLocalFile.ts
+function isLocalFile(ep) {
+  return ep.podcastName === "local file";
 }
 
 // src/API/API.ts
@@ -1455,16 +1397,19 @@ var API = class {
     return !get_store_value(isPaused);
   }
   getPodcastTimeFormatted(format2, linkify = false) {
+    var _a;
     if (!this.podcast) {
       throw new Error("No podcast loaded");
     }
     const time = formatSeconds(this.currentTime, format2);
     if (!linkify)
       return time;
-    if (!this.podcast.feedUrl) {
+    const epIsLocal = isLocalFile(this.podcast);
+    const feedUrl = !epIsLocal ? this.podcast.feedUrl : (_a = downloadedEpisodes.getEpisode(this.podcast)) == null ? void 0 : _a.filePath;
+    if (!feedUrl || feedUrl === "") {
       return time;
     }
-    const url = encodePodnotesURI(this.podcast.title, this.podcast.feedUrl, this.currentTime);
+    const url = encodePodnotesURI(this.podcast.title, feedUrl, this.currentTime);
     return `[${time}](${url.href})`;
   }
   start() {
@@ -1472,6 +1417,9 @@ var API = class {
   }
   stop() {
     isPaused.update((_) => true);
+  }
+  togglePlayback() {
+    isPaused.update((isPaused2) => !isPaused2);
   }
   skipBackward() {
     const skipBackLen = get_store_value(plugin).settings.skipBackwardLength;
@@ -1535,7 +1483,7 @@ var DEFAULT_SETTINGS = {
 };
 
 // src/ui/settings/PodNotesSettingsTab.ts
-var import_obsidian10 = require("obsidian");
+var import_obsidian11 = require("obsidian");
 
 // node_modules/tslib/modules/index.js
 var import_tslib = __toESM(require_tslib(), 1);
@@ -1571,7 +1519,7 @@ var {
 var import_obsidian6 = require("obsidian");
 
 // src/iTunesAPIConsumer.ts
-var import_obsidian3 = require("obsidian");
+var import_obsidian2 = require("obsidian");
 function queryiTunesPodcasts(query) {
   return __async(this, null, function* () {
     const url = new URL("https://itunes.apple.com/search?");
@@ -1579,15 +1527,127 @@ function queryiTunesPodcasts(query) {
     url.searchParams.append("media", "podcast");
     url.searchParams.append("limit", "3");
     url.searchParams.append("kind", "podcast");
-    const res = yield (0, import_obsidian3.requestUrl)({ url: url.href });
+    const res = yield (0, import_obsidian2.requestUrl)({ url: url.href });
     const data = res.json.results;
     return data.map((d) => ({
       title: d.collectionName,
       url: d.feedUrl,
-      artworkUrl: d.artworkUrl100
+      artworkUrl: d.artworkUrl100,
+      collectionId: d.collectionId
     }));
   });
 }
+
+// src/parser/feedParser.ts
+var import_obsidian3 = require("obsidian");
+var FeedParser = class {
+  constructor(feed) {
+    this.feed = feed;
+  }
+  findItemByTitle(title, url) {
+    return __async(this, null, function* () {
+      const body = yield this.parseFeed(url);
+      const items = body.querySelectorAll("item");
+      const item = Array.from(items).find((item2) => {
+        const parsed = this.parseItem(item2);
+        const isMatch = parsed && parsed.title === title;
+        return isMatch;
+      });
+      if (!item) {
+        throw new Error("Could not find episode");
+      }
+      const episode = this.parseItem(item);
+      const feed = yield this.getFeed(url);
+      if (!episode) {
+        throw new Error("Episode is invalid.");
+      }
+      if (!episode.artworkUrl) {
+        episode.artworkUrl = feed.artworkUrl;
+      }
+      if (!episode.podcastName) {
+        episode.podcastName = feed.title;
+      }
+      if (!episode.feedUrl) {
+        episode.feedUrl = feed.url;
+      }
+      return episode;
+    });
+  }
+  getEpisodes(url) {
+    return __async(this, null, function* () {
+      const body = yield this.parseFeed(url);
+      return this.parsePage(body);
+    });
+  }
+  getFeed(url) {
+    return __async(this, null, function* () {
+      var _a;
+      const body = yield this.parseFeed(url);
+      const titleEl = body.querySelector("title");
+      const linkEl = body.querySelector("link");
+      const itunesImageEl = body.querySelector("image");
+      if (!titleEl || !linkEl) {
+        throw new Error("Invalid RSS feed");
+      }
+      const title = titleEl.textContent || "";
+      const artworkUrl = (itunesImageEl == null ? void 0 : itunesImageEl.getAttribute("href")) || ((_a = itunesImageEl == null ? void 0 : itunesImageEl.querySelector("url")) == null ? void 0 : _a.textContent) || "";
+      return {
+        title,
+        url,
+        artworkUrl
+      };
+    });
+  }
+  parsePage(page) {
+    const items = page.querySelectorAll("item");
+    function isEpisode(ep) {
+      return !!ep;
+    }
+    return Array.from(items).map(this.parseItem.bind(this)).filter(isEpisode);
+  }
+  parseItem(item) {
+    var _a, _b, _c, _d;
+    const titleEl = item.querySelector("title");
+    const streamUrlEl = item.querySelector("enclosure");
+    const linkEl = item.querySelector("link");
+    const descriptionEl = item.querySelector("description");
+    const contentEl = item.querySelector("*|encoded");
+    const pubDateEl = item.querySelector("pubDate");
+    const itunesImageEl = item.querySelector("image");
+    const itunesTitleEl = item.getElementsByTagName("itunes:title")[0];
+    if (!titleEl || !streamUrlEl || !pubDateEl) {
+      return null;
+    }
+    const title = titleEl.textContent || "";
+    const streamUrl = streamUrlEl.getAttribute("url") || "";
+    const url = (linkEl == null ? void 0 : linkEl.textContent) || "";
+    const description = (descriptionEl == null ? void 0 : descriptionEl.textContent) || "";
+    const content = (contentEl == null ? void 0 : contentEl.textContent) || "";
+    const pubDate = new Date(pubDateEl.textContent);
+    const artworkUrl = (itunesImageEl == null ? void 0 : itunesImageEl.getAttribute("href")) || ((_a = this.feed) == null ? void 0 : _a.artworkUrl);
+    const itunesTitle = itunesTitleEl == null ? void 0 : itunesTitleEl.textContent;
+    return {
+      title,
+      streamUrl,
+      url: url || ((_b = this.feed) == null ? void 0 : _b.url) || "",
+      description,
+      content,
+      podcastName: ((_c = this.feed) == null ? void 0 : _c.title) || "",
+      artworkUrl,
+      episodeDate: pubDate,
+      feedUrl: ((_d = this.feed) == null ? void 0 : _d.url) || "",
+      itunesTitle: itunesTitle || ""
+    };
+  }
+  parseFeed(feedUrl) {
+    return __async(this, null, function* () {
+      const req = yield (0, import_obsidian3.requestUrl)({ url: feedUrl });
+      const dp = new DOMParser();
+      const body = dp.parseFromString(req.text, "text/xml");
+      return body;
+    });
+  }
+};
 
 // src/utility/checkStringIsUrl.ts
 function checkStringIsUrl(url) {
@@ -1957,7 +2017,7 @@ function create_each_block(ctx) {
   podcastresultcard = new PodcastResultCard_default({
     props: {
       podcast: ctx[6],
-      isSaved: ((_a = ctx[2][ctx[6].title]) == null ? void 0 : _a.url) === ctx[6].url
+      isSaved: typeof ctx[6].url === "string" && ((_a = ctx[2][ctx[6].title]) == null ? void 0 : _a.url) === ctx[6].url
     }
   });
   podcastresultcard.$on("addPodcast", ctx[4]);
@@ -1976,7 +2036,7 @@ function create_each_block(ctx) {
       if (dirty & 1)
         podcastresultcard_changes.podcast = ctx2[6];
       if (dirty & 5)
-        podcastresultcard_changes.isSaved = ((_a2 = ctx2[2][ctx2[6].title]) == null ? void 0 : _a2.url) === ctx2[6].url;
+        podcastresultcard_changes.isSaved = typeof ctx2[6].url === "string" && ((_a2 = ctx2[2][ctx2[6].title]) == null ? void 0 : _a2.url) === ctx2[6].url;
       podcastresultcard.$set(podcastresultcard_changes);
     },
     i(local) {
@@ -4153,6 +4213,12 @@ function NoteTemplateEngine(template, episode) {
     }
     return (0, import_obsidian9.htmlToMarkdown)(episode.description);
   });
+  addTag("content", (prependToLines) => {
+    if (prependToLines) {
+      return (0, import_obsidian9.htmlToMarkdown)(episode.content).split("\n").map((str) => `${prependToLines}${str}`).join("\n");
+    }
+    return (0, import_obsidian9.htmlToMarkdown)(episode.content);
+  });
   addTag("safetitle", replaceIllegalFileNameCharactersInString(episode.title));
   addTag("url", episode.url);
   addTag("date", (format2) => episode.episodeDate ? window.moment(episode.episodeDate).format(format2 != null ? format2 : "YYYY-MM-DD") : "");
@@ -4168,24 +4234,114 @@ function TimestampTemplateEngine(template) {
 }
 function FilePathTemplateEngine(template, episode) {
   const [replacer, addTag] = useTemplateEngine();
-  addTag("title", replaceIllegalFileNameCharactersInString(episode.title));
-  addTag("podcast", replaceIllegalFileNameCharactersInString(episode.podcastName));
+  addTag("title", (whitespaceReplacement) => {
+    const legalTitle = replaceIllegalFileNameCharactersInString(episode.title);
+    if (whitespaceReplacement) {
+      return legalTitle.replace(/\s+/g, whitespaceReplacement);
+    }
+    return legalTitle;
+  });
+  addTag("podcast", (whitespaceReplacement) => {
+    const legalName = replaceIllegalFileNameCharactersInString(episode.podcastName);
+    if (whitespaceReplacement) {
+      return legalName.replace(/\s+/g, whitespaceReplacement);
+    }
+    return legalName;
+  });
+  addTag("date", (format2) => episode.episodeDate ? window.moment(episode.episodeDate).format(format2 != null ? format2 : "YYYY-MM-DD") : "");
   return replacer(template);
 }
 function DownloadPathTemplateEngine(template, episode) {
   const templateExtension = getUrlExtension(template);
   const templateWithoutExtension = templateExtension ? template.replace(templateExtension, "") : template;
   const [replacer, addTag] = useTemplateEngine();
-  addTag("title", replaceIllegalFileNameCharactersInString(episode.title));
-  addTag("podcast", replaceIllegalFileNameCharactersInString(episode.podcastName));
+  addTag("title", (whitespaceReplacement) => {
+    const legalTitle = replaceIllegalFileNameCharactersInString(episode.title);
+    if (whitespaceReplacement) {
+      return legalTitle.replace(/\s+/g, whitespaceReplacement);
+    }
+    return legalTitle;
+  });
+  addTag("podcast", (whitespaceReplacement) => {
+    const legalName = replaceIllegalFileNameCharactersInString(episode.podcastName);
+    if (whitespaceReplacement) {
+      return legalName.replace(/\s+/g, whitespaceReplacement);
+    }
+    return legalName;
+  });
+  addTag("date", (format2) => episode.episodeDate ? window.moment(episode.episodeDate).format(format2 != null ? format2 : "YYYY-MM-DD") : "");
   return replacer(templateWithoutExtension);
 }
 function replaceIllegalFileNameCharactersInString(string) {
   return string.replace(/[\\,#%&{}/*<>$'":@\u2023|?]*/g, "").replace(/\n/, " ").replace("  ", " ");
 }
 
+// src/opml.ts
+var import_obsidian10 = require("obsidian");
+function importOPML(targetFile) {
+  return __async(this, null, function* () {
+    const fileContent = yield app.vault.cachedRead(targetFile);
+    const dp = new DOMParser();
+    const dom = dp.parseFromString(fileContent, "application/xml");
+    const podcastEntryNodes = dom.querySelectorAll("outline[text][xmlUrl]");
+    const incompletePodcastsToAdd = [];
+    for (let i = 0; i < podcastEntryNodes.length; i++) {
+      const node = podcastEntryNodes.item(i);
+      const text2 = node.getAttribute("text");
+      const xmlUrl = node.getAttribute("xmlUrl");
+      if (!text2 || !xmlUrl) {
+        continue;
+      }
+      incompletePodcastsToAdd.push({
+        title: text2,
+        url: xmlUrl
+      });
+    }
+    const podcasts = yield Promise.all(incompletePodcastsToAdd.map((feed) => __async(this, null, function* () {
+      return new FeedParser().getFeed(feed.url);
+    })));
+    savedFeeds.update((feeds) => {
+      for (const pod of podcasts) {
+        if (feeds[pod.title])
+          continue;
+        feeds[pod.title] = structuredClone(pod);
+      }
+      return feeds;
+    });
+    new import_obsidian10.Notice(`${targetFile.name} ingested. Saved ${podcasts.length} / ${incompletePodcastsToAdd.length} podcasts.`);
+    if (podcasts.length !== incompletePodcastsToAdd.length) {
+      const missingPodcasts = incompletePodcastsToAdd.filter((pod) => !podcasts.find((v) => v.url === pod.url));
+      for (const missingPod of missingPodcasts) {
+        new import_obsidian10.Notice(`Failed to save ${missingPod.title}...`, 6e4);
+      }
+    }
+  });
+}
+function exportOPML(feeds, filePath = "PodNotes_Export.opml") {
+  return __async(this, null, function* () {
+    const header = `<?xml version="1.0" encoding="utf=8" standalone="no"?>`;
+    const opml = (child) => `<opml version="1.0">${child}</opml>`;
+    const head = (child) => `<head>${child}</head>`;
+    const title = `<title>PodNotes Feeds</title>`;
+    const body = (child) => `<body>${child}</body>`;
+    const feedOutline = (feed) => `<outline text="${feed.title}" type="rss" xmlUrl="${feed.url}" />`;
+    const feedsOutline = (_feeds) => `<outline text="feeds">${feeds.map(feedOutline).join("")}</outline>`;
+    const doc = header + opml(`${head(title)}
+${body(feedsOutline(feeds))}`);
+    try {
+      yield app.vault.create(filePath, doc);
+      new import_obsidian10.Notice(`Exported ${feeds.length} podcast feeds to file "${filePath}".`);
+    } catch (error) {
+      new import_obsidian10.Notice(`Unable to create podcast export file:
+
+${error}`);
+      console.error(error);
+    }
+  });
+}
+
 // src/ui/settings/PodNotesSettingsTab.ts
-var PodNotesSettingsTab = class extends import_obsidian10.PluginSettingTab {
+var PodNotesSettingsTab = class extends import_obsidian11.PluginSettingTab {
   constructor(app2, plugin2) {
     super(app2, plugin2);
     this.plugin = plugin2;
@@ -4198,12 +4354,12 @@ var PodNotesSettingsTab = class extends import_obsidian10.PluginSettingTab {
     header.style.textAlign = "center";
     const settingsContainer = containerEl.createDiv();
     settingsContainer.classList.add("settings-container");
-    new import_obsidian10.Setting(settingsContainer).setName("Search Podcasts").setHeading().setDesc("Search for podcasts by name or custom feed URL.");
+    new import_obsidian11.Setting(settingsContainer).setName("Search Podcasts").setHeading().setDesc("Search for podcasts by name or custom feed URL.");
     const queryGridContainer = settingsContainer.createDiv();
     this.podcastQueryGrid = new PodcastQueryGrid_default({
       target: queryGridContainer
     });
-    new import_obsidian10.Setting(settingsContainer).setName("Playlists").setHeading().setDesc(`Add playlists to gather podcast episodes.`);
+    new import_obsidian11.Setting(settingsContainer).setName("Playlists").setHeading().setDesc(`Add playlists to gather podcast episodes.`);
     const playlistManagerContainer = settingsContainer.createDiv();
     this.playlistManager = new PlaylistManager_default({
       target: playlistManagerContainer
@@ -4212,6 +4368,8 @@ var PodNotesSettingsTab = class extends import_obsidian10.PluginSettingTab {
     this.addSkipLengthSettings(settingsContainer);
     this.addNoteSettings(settingsContainer);
     this.addDownloadSettings(settingsContainer);
+    this.addImportSettings(settingsContainer);
+    this.addExportSettings(settingsContainer);
   }
   hide() {
     var _a, _b;
@@ -4219,20 +4377,20 @@ var PodNotesSettingsTab = class extends import_obsidian10.PluginSettingTab {
     (_b = this.playlistManager) == null ? void 0 : _b.$destroy();
   }
   addDefaultPlaybackRateSetting(container) {
-    new import_obsidian10.Setting(container).setName("Default Playback Rate").addSlider((slider) => slider.setLimits(0.5, 4, 0.1).setValue(this.plugin.settings.defaultPlaybackRate).onChange((value) => {
+    new import_obsidian11.Setting(container).setName("Default Playback Rate").addSlider((slider) => slider.setLimits(0.5, 4, 0.1).setValue(this.plugin.settings.defaultPlaybackRate).onChange((value) => {
       this.plugin.settings.defaultPlaybackRate = value;
       this.plugin.saveSettings();
     }).setDynamicTooltip());
   }
   addSkipLengthSettings(container) {
-    new import_obsidian10.Setting(container).setName("Skip backward length (s)").addText((textComponent) => {
+    new import_obsidian11.Setting(container).setName("Skip backward length (s)").addText((textComponent) => {
       textComponent.inputEl.type = "number";
       textComponent.setValue(`${this.plugin.settings.skipBackwardLength}`).onChange((value) => {
         this.plugin.settings.skipBackwardLength = parseInt(value);
         this.plugin.saveSettings();
       }).setPlaceholder("seconds");
     });
-    new import_obsidian10.Setting(container).setName("Skip forward length (s)").addText((textComponent) => {
+    new import_obsidian11.Setting(container).setName("Skip forward length (s)").addText((textComponent) => {
       textComponent.inputEl.type = "number";
       textComponent.setValue(`${this.plugin.settings.skipForwardLength}`).onChange((value) => {
         this.plugin.settings.skipForwardLength = parseInt(value);
@@ -4243,7 +4401,7 @@ var PodNotesSettingsTab = class extends import_obsidian10.PluginSettingTab {
   addNoteSettings(settingsContainer) {
     const container = settingsContainer.createDiv();
     container.createEl("h4", { text: "Note settings" });
-    const timestampSetting = new import_obsidian10.Setting(container).setName("Capture timestamp format").setHeading().addTextArea((textArea) => {
+    const timestampSetting = new import_obsidian11.Setting(container).setName("Capture timestamp format").setHeading().addTextArea((textArea) => {
       textArea.setValue(this.plugin.settings.timestamp.template);
       textArea.setPlaceholder("- {{linktime}} ");
       textArea.onChange((value) => {
@@ -4262,11 +4420,11 @@ var PodNotesSettingsTab = class extends import_obsidian10.PluginSettingTab {
         return;
       const demoVal = TimestampTemplateEngine(value);
       timestampFormatDemoEl.empty();
-      import_obsidian10.MarkdownRenderer.renderMarkdown(demoVal, timestampFormatDemoEl, "", null);
+      import_obsidian11.MarkdownRenderer.renderMarkdown(demoVal, timestampFormatDemoEl, "", null);
     };
     updateTimestampDemo(this.plugin.settings.timestamp.template);
     const randomEpisode = getRandomEpisode();
-    const noteCreationFilePathSetting = new import_obsidian10.Setting(container).setName("Note creation file path").setHeading().addText((textComponent) => {
+    const noteCreationFilePathSetting = new import_obsidian11.Setting(container).setName("Note creation file path").setHeading().addText((textComponent) => {
       textComponent.setValue(this.plugin.settings.note.path);
       textComponent.setPlaceholder("inputs/podcasts/{{podcast}} - {{title}}.md");
       textComponent.onChange((value) => {
@@ -4274,7 +4432,7 @@ var PodNotesSettingsTab = class extends import_obsidian10.PluginSettingTab {
         this.plugin.saveSettings();
         const demoVal = FilePathTemplateEngine(value, randomEpisode);
         noteCreationFilePathDemoEl.empty();
-        import_obsidian10.MarkdownRenderer.renderMarkdown(demoVal, noteCreationFilePathDemoEl, "", null);
+        import_obsidian11.MarkdownRenderer.renderMarkdown(demoVal, noteCreationFilePathDemoEl, "", null);
       });
       textComponent.inputEl.style.width = "100%";
     });
@@ -4282,7 +4440,7 @@ var PodNotesSettingsTab = class extends import_obsidian10.PluginSettingTab {
     noteCreationFilePathSetting.settingEl.style.alignItems = "unset";
     noteCreationFilePathSetting.settingEl.style.gap = "10px";
     const noteCreationFilePathDemoEl = container.createDiv();
-    const noteCreationSetting = new import_obsidian10.Setting(container).setName("Note creation template").setHeading().addTextArea((textArea) => {
+    const noteCreationSetting = new import_obsidian11.Setting(container).setName("Note creation template").setHeading().addTextArea((textArea) => {
       textArea.setValue(this.plugin.settings.note.template);
       textArea.onChange((value) => {
         this.plugin.settings.note.template = value;
@@ -4299,7 +4457,7 @@ var PodNotesSettingsTab = class extends import_obsidian10.PluginSettingTab {
   addDownloadSettings(container) {
     container.createEl("h4", { text: "Download settings" });
     const randomEpisode = getRandomEpisode();
-    const downloadPathSetting = new import_obsidian10.Setting(container).setName("Episode download path").setDesc("The path where the episode will be downloaded to. Avoid setting an extension, as it will be added automatically.").setHeading().addText((textComponent) => {
+    const downloadPathSetting = new import_obsidian11.Setting(container).setName("Episode download path").setDesc("The path where the episode will be downloaded to. Avoid setting an extension, as it will be added automatically.").setHeading().addText((textComponent) => {
       textComponent.setValue(this.plugin.settings.download.path);
       textComponent.setPlaceholder("inputs/podcasts/{{podcast}} - {{title}}");
       textComponent.onChange((value) => {
@@ -4307,7 +4465,7 @@ var PodNotesSettingsTab = class extends import_obsidian10.PluginSettingTab {
         this.plugin.saveSettings();
         const demoVal = DownloadPathTemplateEngine(value, randomEpisode);
         downloadFilePathDemoEl.empty();
-        import_obsidian10.MarkdownRenderer.renderMarkdown(`${demoVal}.mp3`, downloadFilePathDemoEl, "", null);
+        import_obsidian11.MarkdownRenderer.renderMarkdown(`${demoVal}.mp3`, downloadFilePathDemoEl, "", null);
       });
       textComponent.inputEl.style.width = "100%";
     });
@@ -4316,10 +4474,50 @@ var PodNotesSettingsTab = class extends import_obsidian10.PluginSettingTab {
     downloadPathSetting.settingEl.style.gap = "10px";
     const downloadFilePathDemoEl = container.createDiv();
   }
+  addImportSettings(settingsContainer) {
+    const setting = new import_obsidian11.Setting(settingsContainer);
+    const opmlFiles = app.vault.getAllLoadedFiles().filter((file) => file instanceof import_obsidian11.TFile && file.extension.toLowerCase().endsWith("opml"));
+    const detectedOpmlFile = opmlFiles[0];
+    let value = detectedOpmlFile ? detectedOpmlFile.path : "";
+    setting.setName("Import").setDesc("Import podcasts from other services with OPML files.");
+    setting.addText((text2) => {
+      text2.setPlaceholder(detectedOpmlFile ? detectedOpmlFile.path : "path to opml file");
+      text2.onChange((v) => value = v);
+      text2.setValue(value);
+    });
+    setting.addButton((importBtn) => importBtn.setButtonText("Import").onClick(() => {
+      const inputFile = app.vault.getAbstractFileByPath(value);
+      if (!inputFile || !(inputFile instanceof import_obsidian11.TFile)) {
+        new import_obsidian11.Notice(`Invalid file path, could not find opml file at location "${value}".`);
+        return;
+      }
+      new import_obsidian11.Notice("Starting import...");
+      importOPML(inputFile);
+    }));
+  }
+  addExportSettings(settingsContainer) {
+    const setting = new import_obsidian11.Setting(settingsContainer);
+    setting.setName("Export").setDesc("Export saved podcast feeds to OPML file.");
+    let value = "PodNotes_Export.opml";
+    setting.addText((text2) => {
+      text2.setPlaceholder("Target path");
+      text2.onChange((v) => value = v);
+      text2.setValue(value);
+    });
+    setting.addButton((btn) => btn.setButtonText("Export").onClick(() => {
+      const feeds = Object.values(get_store_value(savedFeeds));
+      if (feeds.length === 0) {
+        new import_obsidian11.Notice("Nothing to export.");
+        return;
+      }
+      exportOPML(feeds, value.endsWith(".opml") ? value : `${value}.opml`);
+    }));
+  }
 };
 function getRandomEpisode() {
   const fallbackDemoObj = {
     description: "demo",
+    content: "demo",
     podcastName: "demo",
     title: "demo",
     url: "demo",
@@ -4339,7 +4537,7 @@ function getRandomEpisode() {
 }
 
 // src/ui/PodcastView/index.ts
-var import_obsidian17 = require("obsidian");
+var import_obsidian18 = require("obsidian");
 
 // src/ui/PodcastView/PlaylistCard.svelte
 function add_css6(target) {
@@ -4443,14 +4641,14 @@ var PlaylistCard_default = PlaylistCard;
 
 // src/ui/common/Image.svelte
 function add_css7(target) {
-  append_styles(target, "svelte-64m37l", "img.svelte-64m37l:hover{cursor:pointer !important}");
+  append_styles(target, "svelte-1uzaahv", "img.svelte-1uzaahv:hover{cursor:pointer !important}.pn_image_container.svelte-1uzaahv{width:100%;height:100%;display:block;position:relative;overflow:hidden}");
 }
 var get_fallback_slot_changes = (dirty) => ({});
 var get_fallback_slot_context = (ctx) => ({});
 function create_if_block_1(ctx) {
   let current;
-  const fallback_slot_template = ctx[9].fallback;
-  const fallback_slot = create_slot(fallback_slot_template, ctx, ctx[8], get_fallback_slot_context);
+  const fallback_slot_template = ctx[10].fallback;
+  const fallback_slot = create_slot(fallback_slot_template, ctx, ctx[9], get_fallback_slot_context);
   return {
     c() {
       if (fallback_slot)
@@ -4464,8 +4662,8 @@ function create_if_block_1(ctx) {
     },
     p(ctx2, dirty) {
       if (fallback_slot) {
-        if (fallback_slot.p && (!current || dirty & 256)) {
-          update_slot_base(fallback_slot, fallback_slot_template, ctx2, ctx2[8], !current ? get_all_dirty_from_scope(ctx2[8]) : get_slot_changes(fallback_slot_template, ctx2[8], dirty, get_fallback_slot_changes), get_fallback_slot_context);
+        if (fallback_slot.p && (!current || dirty & 512)) {
+          update_slot_base(fallback_slot, fallback_slot_template, ctx2, ctx2[9], !current ? get_all_dirty_from_scope(ctx2[9]) : get_slot_changes(fallback_slot_template, ctx2[9], dirty, get_fallback_slot_changes), get_fallback_slot_context);
         }
       }
     },
@@ -4486,6 +4684,7 @@ function create_if_block_1(ctx) {
   };
 }
 function create_if_block2(ctx) {
+  let div;
   let img;
   let img_src_value;
   let img_class_value;
@@ -4493,21 +4692,25 @@ function create_if_block2(ctx) {
   let dispose;
   return {
     c() {
+      div = element("div");
       img = element("img");
+      attr(img, "draggable", "false");
       if (!src_url_equal(img.src, img_src_value = ctx[0]))
         attr(img, "src", img_src_value);
       attr(img, "alt", ctx[1]);
-      attr(img, "class", img_class_value = null_to_empty(ctx[3]) + " svelte-64m37l");
-      set_style(img, "opacity", !ctx[2] ? 1 : ctx[4] ? 1 : 0, false);
+      attr(img, "class", img_class_value = null_to_empty(ctx[4]) + " svelte-1uzaahv");
+      set_style(img, "opacity", ctx[3] ? ctx[3] : !ctx[2] ? 1 : ctx[5] ? 1 : 0, false);
       set_style(img, "transition", ctx[2] ? "opacity 0.5s ease-out" : "", false);
+      attr(div, "class", "pn_image_container svelte-1uzaahv");
     },
     m(target, anchor) {
-      insert(target, img, anchor);
+      insert(target, div, anchor);
+      append(div, img);
       if (!mounted) {
         dispose = [
-          listen(img, "click", ctx[10]),
-          listen(img, "load", ctx[11]),
-          listen(img, "error", ctx[12])
+          listen(img, "click", ctx[11]),
+          listen(img, "load", ctx[12]),
+          listen(img, "error", ctx[13])
         ];
         mounted = true;
       }
@@ -4519,11 +4722,11 @@ function create_if_block2(ctx) {
       if (dirty & 2) {
         attr(img, "alt", ctx2[1]);
       }
-      if (dirty & 8 && img_class_value !== (img_class_value = null_to_empty(ctx2[3]) + " svelte-64m37l")) {
+      if (dirty & 16 && img_class_value !== (img_class_value = null_to_empty(ctx2[4]) + " svelte-1uzaahv")) {
         attr(img, "class", img_class_value);
       }
-      if (dirty & 20) {
-        set_style(img, "opacity", !ctx2[2] ? 1 : ctx2[4] ? 1 : 0, false);
+      if (dirty & 44) {
+        set_style(img, "opacity", ctx2[3] ? ctx2[3] : !ctx2[2] ? 1 : ctx2[5] ? 1 : 0, false);
       }
       if (dirty & 4) {
         set_style(img, "transition", ctx2[2] ? "opacity 0.5s ease-out" : "", false);
@@ -4533,7 +4736,7 @@ function create_if_block2(ctx) {
     o: noop,
     d(detaching) {
       if (detaching)
-        detach(img);
+        detach(div);
       mounted = false;
       run_all(dispose);
     }
@@ -4547,9 +4750,9 @@ function create_fragment10(ctx) {
   const if_block_creators = [create_if_block2, create_if_block_1];
   const if_blocks = [];
   function select_block_type(ctx2, dirty) {
-    if (ctx2[5] || ctx2[4])
+    if (ctx2[6] || ctx2[5])
       return 0;
-    if (ctx2[6])
+    if (ctx2[7])
       return 1;
     return -1;
   }
@@ -4623,6 +4826,7 @@ function instance10($$self, $$props, $$invalidate) {
   let { src } = $$props;
   let { alt } = $$props;
   let { fadeIn = false } = $$props;
+  let { opacity = 0 } = $$props;
   let { class: _class = "" } = $$props;
   let loaded = false;
   let loading = true;
@@ -4633,12 +4837,12 @@ function instance10($$self, $$props, $$invalidate) {
   }
   const click_handler = (e) => onClick(e);
   const load_handler = () => {
-    $$invalidate(4, loaded = true);
-    $$invalidate(5, loading = false);
+    $$invalidate(5, loaded = true);
+    $$invalidate(6, loading = false);
   };
   const error_handler = () => {
-    $$invalidate(6, failed = true);
-    $$invalidate(5, loading = false);
+    $$invalidate(7, failed = true);
+    $$invalidate(6, loading = false);
   };
   $$self.$$set = ($$props2) => {
     if ("src" in $$props2)
@@ -4647,15 +4851,18 @@ function instance10($$self, $$props, $$invalidate) {
       $$invalidate(1, alt = $$props2.alt);
     if ("fadeIn" in $$props2)
       $$invalidate(2, fadeIn = $$props2.fadeIn);
+    if ("opacity" in $$props2)
+      $$invalidate(3, opacity = $$props2.opacity);
     if ("class" in $$props2)
-      $$invalidate(3, _class = $$props2.class);
+      $$invalidate(4, _class = $$props2.class);
     if ("$$scope" in $$props2)
-      $$invalidate(8, $$scope = $$props2.$$scope);
+      $$invalidate(9, $$scope = $$props2.$$scope);
   };
   return [
     src,
     alt,
     fadeIn,
+    opacity,
     _class,
     loaded,
     loading,
@@ -4671,14 +4878,20 @@ function instance10($$self, $$props, $$invalidate) {
 var Image = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance10, create_fragment10, safe_not_equal, { src: 0, alt: 1, fadeIn: 2, class: 3 }, add_css7);
+    init(this, options, instance10, create_fragment10, safe_not_equal, {
+      src: 0,
+      alt: 1,
+      fadeIn: 2,
+      opacity: 3,
+      class: 4
+    }, add_css7);
   }
 };
 var Image_default = Image;
 
 // src/ui/PodcastView/PodcastGridCard.svelte
 function add_css8(target) {
-  append_styles(target, "svelte-m1ctcb", ".podcast-image{width:100%;height:100%;cursor:pointer !important;background-size:cover;background-position:center;background-repeat:no-repeat;border:1px solid var(--background-modifier-border)}");
+  append_styles(target, "svelte-13t4swo", ".podcast-image{width:100%;height:100%;cursor:pointer !important;object-fit:cover;background-size:cover;background-position:center;background-repeat:no-repeat;border:1px solid var(--background-modifier-border)}");
 }
 function create_fragment11(ctx) {
   let image;
@@ -5109,7 +5322,7 @@ var PodcastGrid = class extends SvelteComponent {
 var PodcastGrid_default = PodcastGrid;
 
 // src/ui/obsidian/Slider.svelte
-var import_obsidian11 = require("obsidian");
+var import_obsidian12 = require("obsidian");
 function create_fragment13(ctx) {
   let span;
   return {
@@ -5138,7 +5351,7 @@ function instance13($$self, $$props, $$invalidate) {
   let slider;
   let { style: styles } = $$props;
   onMount(() => {
-    slider = new import_obsidian11.SliderComponent(sliderRef);
+    slider = new import_obsidian12.SliderComponent(sliderRef);
     updateSliderAttributes(slider);
   });
   afterUpdate(() => {
@@ -5526,6 +5739,25 @@ var ImageLoader_default = ImageLoader;
 function add_css12(target) {
   append_styles(target, "svelte-1gcgk6w", ".podcast-episode-item.svelte-1gcgk6w{display:flex;flex-direction:row;justify-content:space-between;align-items:center;padding:0.5rem;width:100%;border:solid 1px var(--background-divider);gap:0.25rem}.podcast-episode-item.svelte-1gcgk6w:hover{background-color:var(--background-divider)}.podcast-episode-item.svelte-1gcgk6w:hover{cursor:pointer}.strikeout.svelte-1gcgk6w{text-decoration:line-through}.podcast-episode-information.svelte-1gcgk6w{display:flex;flex-direction:column;justify-content:space-between;align-items:left;width:100%}.episode-item-date.svelte-1gcgk6w{color:gray}.podcast-episode-thumbnail-container.svelte-1gcgk6w{flex-basis:20%;display:flex;align-items:center;justify-content:center}.podcast-episode-thumbnail{border-radius:15%;max-width:5rem;max-height:5rem;cursor:pointer !important}");
 }
+function create_if_block_13(ctx) {
+  let div;
+  return {
+    c() {
+      div = element("div");
+      attr(div, "class", "podcast-episode-thumbnail-container svelte-1gcgk6w");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+    },
+    p: noop,
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(div);
+    }
+  };
+}
 function create_if_block5(ctx) {
   let div;
   let imageloader;
@@ -5575,8 +5807,9 @@ function create_if_block5(ctx) {
   };
 }
 function create_fragment17(ctx) {
-  var _a;
   let div1;
+  let current_block_type_index;
+  let if_block;
   let t0;
   let div0;
   let span0;
@@ -5590,7 +5823,19 @@ function create_fragment17(ctx) {
   let current;
   let mounted;
   let dispose;
-  let if_block = ctx[2] && ((_a = ctx[0]) == null ? void 0 : _a.artworkUrl) && create_if_block5(ctx);
+  const if_block_creators = [create_if_block5, create_if_block_13];
+  const if_blocks = [];
+  function select_block_type(ctx2, dirty) {
+    var _a;
+    if (ctx2[2] && ((_a = ctx2[0]) == null ? void 0 : _a.artworkUrl))
+      return 0;
+    if (ctx2[2])
+      return 1;
+    return -1;
+  }
+  if (~(current_block_type_index = select_block_type(ctx, -1))) {
+    if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+  }
   return {
     c() {
       div1 = element("div");
@@ -5606,13 +5851,14 @@ function create_fragment17(ctx) {
       attr(span0, "class", "episode-item-date svelte-1gcgk6w");
       attr(span1, "class", span1_class_value = null_to_empty(`episode-item-title ${ctx[1] && "strikeout"}`) + " svelte-1gcgk6w");
       attr(div0, "class", "podcast-episode-information svelte-1gcgk6w");
-      set_style(div0, "flex-basis", ctx[2] ? "80%" : "", false);
+      set_style(div0, "flex-basis", "80%", false);
       attr(div1, "class", "podcast-episode-item svelte-1gcgk6w");
     },
     m(target, anchor) {
       insert(target, div1, anchor);
-      if (if_block)
-        if_block.m(div1, null);
+      if (~current_block_type_index) {
+        if_blocks[current_block_type_index].m(div1, null);
+      }
       append(div1, t0);
       append(div1, div0);
       append(div0, span0);
@@ -5630,25 +5876,33 @@ function create_fragment17(ctx) {
       }
     },
     p(ctx2, [dirty]) {
-      var _a2;
-      if (ctx2[2] && ((_a2 = ctx2[0]) == null ? void 0 : _a2.artworkUrl)) {
+      let previous_block_index = current_block_type_index;
+      current_block_type_index = select_block_type(ctx2, dirty);
+      if (current_block_type_index === previous_block_index) {
+        if (~current_block_type_index) {
+          if_blocks[current_block_type_index].p(ctx2, dirty);
+        }
+      } else {
         if (if_block) {
-          if_block.p(ctx2, dirty);
-          if (dirty & 5) {
-            transition_in(if_block, 1);
+          group_outros();
+          transition_out(if_blocks[previous_block_index], 1, 1, () => {
+            if_blocks[previous_block_index] = null;
+          });
+          check_outros();
+        }
+        if (~current_block_type_index) {
+          if_block = if_blocks[current_block_type_index];
+          if (!if_block) {
+            if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx2);
+            if_block.c();
+          } else {
+            if_block.p(ctx2, dirty);
           }
-        } else {
-          if_block = create_if_block5(ctx2);
-          if_block.c();
           transition_in(if_block, 1);
           if_block.m(div1, t0);
-        }
-      } else if (if_block) {
-        group_outros();
-        transition_out(if_block, 1, 1, () => {
+        } else {
           if_block = null;
-        });
-        check_outros();
+        }
       }
       if ((!current || dirty & 8) && t1_value !== (t1_value = ctx2[3].toUpperCase() + ""))
         set_data(t1, t1_value);
@@ -5656,9 +5910,6 @@ function create_fragment17(ctx) {
         set_data(t3, t3_value);
       if (!current || dirty & 2 && span1_class_value !== (span1_class_value = null_to_empty(`episode-item-title ${ctx2[1] && "strikeout"}`) + " svelte-1gcgk6w")) {
         attr(span1, "class", span1_class_value);
-      }
-      if (dirty & 4) {
-        set_style(div0, "flex-basis", ctx2[2] ? "80%" : "", false);
       }
     },
     i(local) {
@@ -5674,8 +5925,9 @@ function create_fragment17(ctx) {
     d(detaching) {
       if (detaching)
         detach(div1);
-      if (if_block)
-        if_block.d();
+      if (~current_block_type_index) {
+        if_blocks[current_block_type_index].d();
+      }
       mounted = false;
       run_all(dispose);
     }
@@ -5851,7 +6103,7 @@ function create_if_block_2(ctx) {
     }
   };
 }
-function create_if_block_13(ctx) {
+function create_if_block_14(ctx) {
   let p;
   return {
     c() {
@@ -5978,7 +6230,7 @@ function create_fragment18(ctx) {
   const header_slot = create_slot(header_slot_template, ctx, ctx[10], get_header_slot_context);
   const header_slot_or_fallback = header_slot || fallback_block(ctx);
   let if_block0 = ctx[2] && create_if_block_2(ctx);
-  let if_block1 = ctx[0].length === 0 && create_if_block_13(ctx);
+  let if_block1 = ctx[0].length === 0 && create_if_block_14(ctx);
   let each_value = ctx[0];
   let each_blocks = [];
   for (let i = 0; i < each_value.length; i += 1) {
@@ -6052,7 +6304,7 @@ function create_fragment18(ctx) {
       if (ctx2[0].length === 0) {
         if (if_block1) {
         } else {
-          if_block1 = create_if_block_13(ctx2);
+          if_block1 = create_if_block_14(ctx2);
           if_block1.c();
           if_block1.m(div0, t2);
         }
@@ -6283,10 +6535,10 @@ var Progressbar = class extends SvelteComponent {
 var Progressbar_default = Progressbar;
 
 // src/ui/PodcastView/spawnEpisodeContextMenu.ts
-var import_obsidian14 = require("obsidian");
+var import_obsidian15 = require("obsidian");
 
 // src/createPodcastNote.ts
-var import_obsidian12 = require("obsidian");
+var import_obsidian13 = require("obsidian");
 
 // src/utility/addExtension.ts
 function addExtension(path, extension) {
@@ -6306,7 +6558,7 @@ function createPodcastNote(episode) {
       app.workspace.getLeaf().openFile(file);
     } catch (error) {
       console.error(error);
-      new import_obsidian12.Notice(`Failed to create note: "${filePathDotMd}"`);
+      new import_obsidian13.Notice(`Failed to create note: "${filePathDotMd}"`);
     }
   });
 }
@@ -6315,7 +6567,7 @@ function getPodcastNote(episode) {
   const filePath = FilePathTemplateEngine(pluginInstance.settings.note.path, episode);
   const filePathDotMd = addExtension(filePath, "md");
   const file = app.vault.getAbstractFileByPath(filePathDotMd);
-  if (!file || !(file instanceof import_obsidian12.TFile)) {
+  if (!file || !(file instanceof import_obsidian13.TFile)) {
     return null;
   }
   return file;
@@ -6323,7 +6575,7 @@ function getPodcastNote(episode) {
 function openPodcastNote(epiosode) {
   const file = getPodcastNote(epiosode);
   if (!file) {
-    new import_obsidian12.Notice(`Note for "${epiosode.title}" does not exist`);
+    new import_obsidian13.Notice(`Note for "${epiosode.title}" does not exist`);
     return;
   }
   app.workspace.getLeaf().openFile(file);
@@ -6332,7 +6584,7 @@ function createFileIfNotExists(path, content, episode, createFolder = true) {
   return __async(this, null, function* () {
     const file = getPodcastNote(episode);
     if (file) {
-      new import_obsidian12.Notice(`Note for "${episode.title}" already exists`);
+      new import_obsidian13.Notice(`Note for "${episode.title}" already exists`);
       return file;
     }
     const foldersInPath = path.split("/").slice(0, -1);
@@ -6348,75 +6600,57 @@ function createFileIfNotExists(path, content, episode, createFolder = true) {
 }
 
 // src/downloadEpisode.ts
-var import_obsidian13 = require("obsidian");
+var import_obsidian14 = require("obsidian");
 function downloadFile(url, options) {
   return __async(this, null, function* () {
     var _a, _b, _c, _d;
     try {
-      const response = yield fetch(url);
-      const reader = (_a = response.body) == null ? void 0 : _a.getReader();
-      if (!reader) {
-        throw new Error("No reader");
+      const response = yield (0, import_obsidian14.requestUrl)({ url, method: "GET" });
+      if (response.status !== 200) {
+        throw new Error("Could not download episode.");
       }
-      const contentLength = +response.headers.get("Content-Length");
-      const chunks = [];
-      let receivedLength = 0;
-      while (true) {
-        const { done, value } = yield reader.read();
-        if (done) {
-          break;
-        }
-        chunks.push(value);
-        receivedLength += value.length;
-        (_b = options == null ? void 0 : options.onProgress) == null ? void 0 : _b.call(options, receivedLength, contentLength);
-      }
-      (_c = options == null ? void 0 : options.onFinished) == null ? void 0 : _c.call(options);
+      const contentLength = response.arrayBuffer.byteLength;
+      (_a = options == null ? void 0 : options.onFinished) == null ? void 0 : _a.call(options);
       return {
-        blob: new Blob(chunks, { type: (_d = response.headers.get("Content-Type")) != null ? _d : "" }),
+        blob: new Blob([response.arrayBuffer], {
+          type: (_c = (_b = response.headers["content-type"]) != null ? _b : response.headers["Content-Type"]) != null ? _c : ""
+        }),
         contentLength,
-        receivedLength,
-        responseUrl: response.url
+        receivedLength: contentLength,
+        responseUrl: url
       };
     } catch (error) {
-      throw new Error(`Failed to download ${url}: ${error.message}`);
+      const err = new Error(`Failed to download ${url}:
+
+${error.message}`);
+      (_d = options == null ? void 0 : options.onError) == null ? void 0 : _d.call(options, err);
+      throw err;
     }
   });
 }
-function downloadEpisodeWithProgressNotice(episode, downloadPathTemplate) {
+function downloadEpisodeWithNotice(episode, downloadPathTemplate) {
   return __async(this, null, function* () {
     const { doc, update: update2 } = createNoticeDoc(`Download "${episode.title}"`);
     const SOME_LARGE_INT_SO_THE_BOX_DOESNT_AUTO_CLOSE = 999999999;
-    const notice = new import_obsidian13.Notice(doc, SOME_LARGE_INT_SO_THE_BOX_DOESNT_AUTO_CLOSE);
+    const notice = new import_obsidian14.Notice(doc, SOME_LARGE_INT_SO_THE_BOX_DOESNT_AUTO_CLOSE);
     update2((bodyEl) => bodyEl.createEl("p", { text: "Starting download..." }));
-    let progressBar;
-    let percentEl;
     update2((bodyEl) => {
-      percentEl = bodyEl.createSpan({ text: "0%" });
-      progressBar = new Progressbar_default({
-        target: bodyEl,
-        props: {
-          max: 100,
-          value: 0,
-          style: {
-            width: "100%",
-            height: "2rem"
-          }
-        }
-      });
+      bodyEl.createEl("p", { text: "Downloading..." });
     });
     const { blob, responseUrl } = yield downloadFile(episode.streamUrl, {
-      onProgress: (progress, total) => {
-        update2((_) => {
-          percentEl.textContent = `${Math.floor(progress / total * 100)}%`;
-          progressBar.$set({ value: progress / total * 100 });
-        }, false);
-      },
       onFinished: () => {
-        progressBar.$destroy();
         update2((bodyEl) => bodyEl.createEl("p", { text: "Download complete!" }));
+      },
+      onError: (error) => {
+        update2((bodyEl) => bodyEl.createEl("p", { text: `Download failed: ${error.message}` }));
       }
     });
     if (!blob.type.contains("audio")) {
+      update2((bodyEl) => {
+        bodyEl.createEl("p", {
+          text: `Downloaded file is not an audio file. It is of type "${blob.type}". Blob: ${blob.size} bytes.`
+        });
+      });
       throw new Error("Not an audio file");
     }
     try {
@@ -6427,7 +6661,9 @@ function downloadEpisodeWithProgressNotice(episode, downloadPathTemplate) {
         blob,
         responseUrl
       });
-      update2((bodyEl) => bodyEl.createEl("p", { text: `Successfully downloaded "${episode.title}" from ${episode.podcastName}.` }));
+      update2((bodyEl) => bodyEl.createEl("p", {
+        text: `Successfully downloaded "${episode.title}" from ${episode.podcastName}.`
+      }));
     } catch (error) {
       update2((bodyEl) => {
         bodyEl.createEl("p", {
@@ -6464,7 +6700,12 @@ function createNoticeDoc(title) {
   };
 }
 function createEpisodeFile(_0) {
-  return __async(this, arguments, function* ({ episode, downloadPathTemplate, blob, responseUrl }) {
+  return __async(this, arguments, function* ({
+    episode,
+    downloadPathTemplate,
+    blob,
+    responseUrl
+  }) {
     const basename = DownloadPathTemplateEngine(downloadPathTemplate, episode);
     const filePath = `${basename}.${getUrlExtension(responseUrl)}`;
     const buffer = yield blob.arrayBuffer();
@@ -6479,7 +6720,7 @@ function createEpisodeFile(_0) {
 
 // src/ui/PodcastView/spawnEpisodeContextMenu.ts
 function spawnEpisodeContextMenu(episode, event, disabledMenuItems) {
-  const menu = new import_obsidian14.Menu();
+  const menu = new import_obsidian15.Menu();
   if (!(disabledMenuItems == null ? void 0 : disabledMenuItems.play)) {
     menu.addItem((item) => item.setIcon("play").setTitle("Play").onClick(() => {
       currentEpisode.set(episode);
@@ -6504,10 +6745,10 @@ function spawnEpisodeContextMenu(episode, event, disabledMenuItems) {
       } else {
         const downloadPath = get_store_value(plugin).settings.download.path;
         if (!downloadPath) {
-          new import_obsidian14.Notice(`Please set a download path in the settings.`);
+          new import_obsidian15.Notice(`Please set a download path in the settings.`);
           return;
         }
-        downloadEpisodeWithProgressNotice(episode, downloadPath);
+        downloadEpisodeWithNotice(episode, downloadPath);
       }
     }));
   }
@@ -6520,7 +6761,7 @@ function spawnEpisodeContextMenu(episode, event, disabledMenuItems) {
         const { path, template } = get_store_value(plugin).settings.note;
         const canCreateNote = Boolean(path && template);
         if (!canCreateNote) {
-          new import_obsidian14.Notice(`Please set a note path and template in the settings.`);
+          new import_obsidian15.Notice(`Please set a note path and template in the settings.`);
           return;
         }
         yield createPodcastNote(episode);
@@ -6586,11 +6827,11 @@ function spawnEpisodeContextMenu(episode, event, disabledMenuItems) {
 }
 
 // src/utility/createMediaUrlObjectFromFilePath.ts
-var import_obsidian15 = require("obsidian");
+var import_obsidian16 = require("obsidian");
 function createMediaUrlObjectFromFilePath(filePath) {
   return __async(this, null, function* () {
     const file = app.vault.getAbstractFileByPath(filePath);
-    if (!file || !(file instanceof import_obsidian15.TFile))
+    if (!file || !(file instanceof import_obsidian16.TFile))
       return "";
     const binary = yield app.vault.readBinary(file);
     return URL.createObjectURL(new Blob([binary], { type: "audio/mpeg" }));
@@ -6599,7 +6840,7 @@ function createMediaUrlObjectFromFilePath(filePath) {
 
 // src/ui/PodcastView/EpisodePlayer.svelte
 function add_css14(target) {
-  append_styles(target, "svelte-1s6o65l", ".episode-player.svelte-1s6o65l{display:flex;flex-direction:column;height:100%}.episode-image-container.svelte-1s6o65l{width:100%;height:auto;padding:5% 20%}.hover-container.svelte-1s6o65l{width:15rem;height:15rem;display:flex;align-items:center;justify-content:center;position:relative;margin-left:auto;margin-right:auto}.podcast-artwork.svelte-1s6o65l{width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat;position:absolute}.podcast-artwork-placeholder.svelte-1s6o65l{width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat;position:absolute;display:flex;align-items:center;justify-content:center}.podcast-artwork.svelte-1s6o65l:hover{cursor:pointer !important}.podcast-artwork-overlay.svelte-1s6o65l{position:absolute}.podcast-artwork-isloading-overlay.svelte-1s6o65l{position:absolute;display:block}.podcast-artwork-overlay.svelte-1s6o65l:hover{cursor:pointer !important}.opacity-50.svelte-1s6o65l{opacity:0.5}.podcast-title.svelte-1s6o65l{font-size:1.5rem;font-weight:bold;margin:0%;margin-bottom:0.5rem;text-align:center}.status-container.svelte-1s6o65l{display:flex;align-items:center;justify-content:space-around}.controls-container.svelte-1s6o65l{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;margin-left:25%;margin-right:25%}.playbackrate-container.svelte-1s6o65l{display:flex;align-items:center;justify-content:space-around;margin-bottom:2.5rem;flex-direction:column;margin-top:auto}");
+  append_styles(target, "svelte-1itadba", ".episode-player{display:flex;flex-direction:column;height:100%}.episode-image-container{width:100%;height:auto;padding:5% 0%}.hover-container{min-width:10rem;min-height:10rem;width:100%;height:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;position:relative;margin-left:auto;margin-right:auto}.podcast-artwork{width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat;position:absolute}.podcast-artwork-placeholder{width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat;position:absolute;display:flex;align-items:center;justify-content:center}.podcast-artwork:hover{cursor:pointer !important}.podcast-artwork-overlay{position:absolute}.podcast-artwork-isloading-overlay{position:absolute;display:block}.podcast-artwork-overlay:hover{cursor:pointer !important}.opacity-50{opacity:0.5}.podcast-title{font-size:1.5rem;font-weight:bold;margin:0%;margin-bottom:0.5rem;text-align:center}.status-container{display:flex;align-items:center;justify-content:space-around}.controls-container{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;margin-left:25%;margin-right:25%}.playbackrate-container{display:flex;align-items:center;justify-content:space-around;margin-bottom:2.5rem;flex-direction:column;margin-top:auto}");
 }
 function create_fallback_slot(ctx) {
   let div;
@@ -6611,7 +6852,7 @@ function create_fallback_slot(ctx) {
     c() {
       div = element("div");
       create_component(icon.$$.fragment);
-      attr(div, "class", div_class_value = null_to_empty("podcast-artwork-placeholder" + (ctx[2] || ctx[9] ? " opacity-50" : "")) + " svelte-1s6o65l");
+      attr(div, "class", div_class_value = "podcast-artwork-placeholder" + (ctx[2] || ctx[9] ? " opacity-50" : ""));
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -6619,7 +6860,7 @@ function create_fallback_slot(ctx) {
       current = true;
     },
     p(ctx2, dirty) {
-      if (!current || dirty[0] & 516 && div_class_value !== (div_class_value = null_to_empty("podcast-artwork-placeholder" + (ctx2[2] || ctx2[9] ? " opacity-50" : "")) + " svelte-1s6o65l")) {
+      if (!current || dirty[0] & 516 && div_class_value !== (div_class_value = "podcast-artwork-placeholder" + (ctx2[2] || ctx2[9] ? " opacity-50" : ""))) {
         attr(div, "class", div_class_value);
       }
     },
@@ -6654,7 +6895,7 @@ function create_else_block2(ctx) {
     c() {
       div = element("div");
       create_component(icon.$$.fragment);
-      attr(div, "class", "podcast-artwork-overlay svelte-1s6o65l");
+      attr(div, "class", "podcast-artwork-overlay");
       attr(div, "style", div_style_value = `display: ${ctx[2] || ctx[9] ? "block" : "none"}`);
     },
     m(target, anchor) {
@@ -6697,7 +6938,7 @@ function create_if_block7(ctx) {
     c() {
       div = element("div");
       create_component(loading.$$.fragment);
-      attr(div, "class", "podcast-artwork-isloading-overlay svelte-1s6o65l");
+      attr(div, "class", "podcast-artwork-isloading-overlay");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -6859,9 +7100,10 @@ function create_fragment20(ctx) {
   let dispose;
   image = new Image_default({
     props: {
-      class: "podcast-artwork" + (ctx[2] || ctx[9] ? " opacity-50" : ""),
+      class: "podcast-artwork",
       src: (_a = ctx[5].artworkUrl) != null ? _a : "",
       alt: ctx[5].title,
+      opacity: ctx[2] || ctx[9] ? 0.5 : 1,
       $$slots: { fallback: [create_fallback_slot] },
       $$scope: { ctx }
     }
@@ -6970,13 +7212,13 @@ function create_fragment20(ctx) {
       create_component(slider.$$.fragment);
       t15 = space();
       create_component(episodelist.$$.fragment);
-      attr(div0, "class", "hover-container svelte-1s6o65l");
-      attr(div1, "class", "episode-image-container svelte-1s6o65l");
-      attr(h2, "class", "podcast-title svelte-1s6o65l");
-      attr(div2, "class", "status-container svelte-1s6o65l");
-      attr(div3, "class", "controls-container svelte-1s6o65l");
-      attr(div4, "class", "playbackrate-container svelte-1s6o65l");
-      attr(div5, "class", "episode-player svelte-1s6o65l");
+      attr(div0, "class", "hover-container");
+      attr(div1, "class", "episode-image-container");
+      attr(h2, "class", "podcast-title");
+      attr(div2, "class", "status-container");
+      attr(div3, "class", "controls-container");
+      attr(div4, "class", "playbackrate-container");
+      attr(div5, "class", "episode-player");
     },
     m(target, anchor) {
       insert(target, div5, anchor);
@@ -7030,12 +7272,12 @@ function create_fragment20(ctx) {
       var _a2;
       ctx = new_ctx;
       const image_changes = {};
-      if (dirty[0] & 516)
-        image_changes.class = "podcast-artwork" + (ctx[2] || ctx[9] ? " opacity-50" : "");
       if (dirty[0] & 32)
         image_changes.src = (_a2 = ctx[5].artworkUrl) != null ? _a2 : "";
       if (dirty[0] & 32)
         image_changes.alt = ctx[5].title;
+      if (dirty[0] & 516)
+        image_changes.opacity = ctx[2] || ctx[9] ? 0.5 : 1;
       if (dirty[0] & 516 | dirty[1] & 2) {
         image_changes.$$scope = { dirty, ctx };
       }
@@ -7236,9 +7478,8 @@ function instance19($$self, $$props, $$invalidate) {
         if (!downloadedEpisode)
           return "";
         return createMediaUrlObjectFromFilePath(downloadedEpisode.filePath);
-      } else {
-        return episode.streamUrl;
       }
+      return episode.streamUrl;
     });
   }
   function play_handler(event) {
@@ -7566,7 +7807,7 @@ var EpisodeListHeader = class extends SvelteComponent {
 var EpisodeListHeader_default = EpisodeListHeader;
 
 // src/ui/PodcastView/PodcastView.svelte
-var import_obsidian16 = require("obsidian");
+var import_obsidian17 = require("obsidian");
 
 // src/utility/searchEpisodes.ts
 function searchEpisodes(query, episodes) {
@@ -7632,7 +7873,7 @@ function create_if_block_4(ctx) {
     }
   };
 }
-function create_if_block_14(ctx) {
+function create_if_block_15(ctx) {
   let episodelist;
   let current;
   episodelist = new EpisodeList_default({
@@ -7997,7 +8238,7 @@ function create_fragment23(ctx) {
   }
   topbar = new TopBar_default({ props: topbar_props });
   binding_callbacks.push(() => bind(topbar, "viewState", topbar_viewState_binding));
-  const if_block_creators = [create_if_block9, create_if_block_14, create_if_block_4];
+  const if_block_creators = [create_if_block9, create_if_block_15, create_if_block_4];
   const if_blocks = [];
   function select_block_type(ctx2, dirty) {
     if (ctx2[8] === 2 /* Player */)
@@ -8183,7 +8424,7 @@ function instance22($$self, $$props, $$invalidate) {
       $$invalidate(3, displayedEpisodes = yield fetchEpisodes(selectedFeed, false));
     });
   }
-  const handleSearch = (0, import_obsidian16.debounce)((event) => {
+  const handleSearch = (0, import_obsidian17.debounce)((event) => {
     const { query } = event.detail;
     if (selectedFeed) {
       const episodesInFeed = $episodeCache[selectedFeed.title];
@@ -8256,7 +8497,7 @@ var PodcastView = class extends SvelteComponent {
 var PodcastView_default = PodcastView;
 
 // src/ui/PodcastView/index.ts
-var MainView = class extends import_obsidian17.ItemView {
+var MainView = class extends import_obsidian18.ItemView {
   constructor(leaf, plugin2) {
     super(leaf);
     this.plugin = plugin2;
@@ -8407,9 +8648,6 @@ var DownloadedEpisodesController = class extends StoreController {
   }
 };
 
-// src/main.ts
-var import_obsidian19 = require("obsidian");
-
 // src/store_controllers/LocalFilesController.ts
 var LocalFilesController = class extends StoreController {
   constructor(store, plugin2) {
@@ -8422,8 +8660,108 @@ var LocalFilesController = class extends StoreController {
   }
 };
 
+// src/URIHandler.ts
+var import_obsidian19 = require("obsidian");
+function podNotesURIHandler(_0, _1) {
+  return __async(this, arguments, function* ({ url, episodeName, time }, api) {
+    if (!url || !episodeName || !time) {
+      new import_obsidian19.Notice("URL, episode name, and timestamp are required to play an episode");
+      return;
+    }
+    const decodedName = episodeName.replace(/\+/g, " ");
+    const currentEp = get_store_value(currentEpisode);
+    const episodeIsPlaying = (currentEp == null ? void 0 : currentEp.title) === decodedName;
+    if (episodeIsPlaying) {
+      viewState.set(2 /* Player */);
+      api.currentTime = parseFloat(time);
+      return;
+    }
+    const decodedUrl = url.replace(/\+/g, " ");
+    const localFile = app.vault.getAbstractFileByPath(decodedUrl);
+    let episode;
+    if (localFile) {
+      episode = localFiles.getLocalEpisode(decodedName);
+    } else {
+      const feedparser = new FeedParser();
+      episode = yield feedparser.findItemByTitle(decodedName, url);
+    }
+    if (!episode) {
+      new import_obsidian19.Notice("Episode not found");
+      return;
+    }
+    currentEpisode.set(episode);
+    viewState.set(2 /* Player */);
+    new import_obsidian19.Notice("Episode found, playing now. Please click timestamp again to play at specific time.");
+  });
+}
+
+// src/getContextMenuHandler.ts
+var import_obsidian20 = require("obsidian");
+function getContextMenuHandler() {
+  return this.app.workspace.on("file-menu", (menu, file) => {
+    if (!(file instanceof import_obsidian20.TFile))
+      return;
+    if (!file.extension.match(/mp3|mp4|wma|aac|wav|webm|aac|flac|m4a|/))
+      return;
+    menu.addItem((item) => item.setIcon("play").setTitle("Play with PodNotes").onClick(() => __async(this, null, function* () {
+      var _a;
+      const localEpisode = {
+        title: file.basename,
+        description: "",
+        content: "",
+        podcastName: "local file",
+        url: app.fileManager.generateMarkdownLink(file, ""),
+        streamUrl: yield createMediaUrlObjectFromFilePath(file.path),
+        episodeDate: new Date(file.stat.ctime)
+      };
+      if (!downloadedEpisodes.isEpisodeDownloaded(localEpisode)) {
+        downloadedEpisodes.addEpisode(localEpisode, file.path, file.stat.size);
+        localFiles.addEpisode(localEpisode);
+      }
+      if ((_a = get_store_value(playedEpisodes)[file.basename]) == null ? void 0 : _a.finished) {
+        playedEpisodes.markAsUnplayed(localEpisode);
+      }
+      currentEpisode.set(localEpisode);
+      viewState.set(2 /* Player */);
+    })));
+  });
+}
+
+// src/getUniversalPodcastLink.ts
+var import_obsidian21 = require("obsidian");
+function getUniversalPodcastLink(api) {
+  return __async(this, null, function* () {
+    const { title, itunesTitle, podcastName, feedUrl } = api.podcast;
+    try {
+      const iTunesResponse = yield queryiTunesPodcasts(api.podcast.podcastName);
+      const podcast = iTunesResponse.find((pod) => pod.title === podcastName && pod.url === feedUrl);
+      if (!podcast || !podcast.collectionId) {
+        throw new Error("Failed to get podcast from iTunes.");
+      }
+      const podLinkUrl = `https://pod.link/${podcast.collectionId}.json?limit=1000`;
+      const res = yield (0, import_obsidian21.requestUrl)({
+        url: podLinkUrl
+      });
+      if (res.status !== 200) {
+        throw new Error(`Failed to get response from pod.link: ${podLinkUrl}`);
+      }
+      const targetTitle = itunesTitle != null ? itunesTitle : title;
+      const ep = res.json.episodes.find((episode) => episode.title === targetTitle);
+      if (!ep) {
+        throw new Error(`Failed to find episode "${targetTitle}" on pod.link. URL: ${podLinkUrl}`);
+      }
+      window.navigator.clipboard.writeText(`https://pod.link/${podcast.collectionId}/episode/${ep.episodeId}`);
+      new import_obsidian21.Notice("Universal episode link copied to clipboard.");
+    } catch (error) {
+      new import_obsidian21.Notice("Could not get podcast link.");
+      console.error(error);
+      return;
+    }
+  });
+}
+
 // src/main.ts
-var PodNotes = class extends import_obsidian18.Plugin {
+var PodNotes = class extends import_obsidian22.Plugin {
   onload() {
     return __async(this, null, function* () {
       plugin.set(this);
@@ -8447,8 +8785,22 @@ var PodNotes = class extends import_obsidian18.Plugin {
       this.downloadedEpisodesController = new DownloadedEpisodesController(downloadedEpisodes, this).on();
       this.currentEpisodeController = new CurrentEpisodeController(currentEpisode, this).on();
       this.addCommand({
+        id: "podnotes-show-leaf",
+        name: "Show PodNotes",
+        icon: "podcast",
+        checkCallback(checking) {
+          if (checking) {
+            return !app.workspace.getLeavesOfType(VIEW_TYPE).length;
+          }
+          app.workspace.getRightLeaf(false).setViewState({
+            type: VIEW_TYPE
+          });
+        }
+      });
+      this.addCommand({
         id: "start-playing",
         name: "Play Podcast",
+        icon: "play-circle",
         checkCallback: (checking) => {
           if (checking) {
             return !this.api.isPlaying && !!this.api.podcast;
@@ -8459,6 +8811,7 @@ var PodNotes = class extends import_obsidian18.Plugin {
       this.addCommand({
         id: "stop-playing",
         name: "Stop Podcast",
+        icon: "stop-circle",
         checkCallback: (checking) => {
           if (checking) {
             return this.api.isPlaying && !!this.api.podcast;
@@ -8469,6 +8822,7 @@ var PodNotes = class extends import_obsidian18.Plugin {
       this.addCommand({
         id: "skip-backward",
         name: "Skip Backward",
+        icon: "skip-back",
         checkCallback: (checking) => {
           if (checking) {
             return this.api.isPlaying && !!this.api.podcast;
@@ -8479,6 +8833,7 @@ var PodNotes = class extends import_obsidian18.Plugin {
       this.addCommand({
         id: "skip-forward",
         name: "Skip Forward",
+        icon: "skip-forward",
         checkCallback: (checking) => {
           if (checking) {
             return this.api.isPlaying && !!this.api.podcast;
@@ -8489,12 +8844,13 @@ var PodNotes = class extends import_obsidian18.Plugin {
       this.addCommand({
         id: "download-playing-episode",
         name: "Download Playing Episode",
+        icon: "download",
         checkCallback: (checking) => {
           if (checking) {
             return !!this.api.podcast;
           }
           const episode = this.api.podcast;
-          downloadEpisodeWithProgressNotice(episode, this.settings.download.path);
+          downloadEpisodeWithNotice(episode, this.settings.download.path);
         }
       });
       this.addCommand({
@@ -8508,6 +8864,7 @@ var PodNotes = class extends import_obsidian18.Plugin {
       this.addCommand({
         id: "capture-timestamp",
         name: "Capture Timestamp",
+        icon: "clock",
         editorCheckCallback: (checking, editor, view) => {
           if (checking) {
             return !!this.api.podcast && !!this.settings.timestamp.template;
@@ -8521,11 +8878,34 @@ var PodNotes = class extends import_obsidian18.Plugin {
       this.addCommand({
         id: "create-podcast-note",
         name: "Create Podcast Note",
+        icon: "file-plus",
         checkCallback: (checking) => {
           if (checking) {
             return !!this.api.podcast && !!this.settings.note.path && !!this.settings.note.template;
           }
           createPodcastNote(this.api.podcast);
+        }
+      });
+      this.addCommand({
+        id: "get-share-link-episode",
+        name: "Copy universal episode link to clipboard",
+        icon: "share",
+        checkCallback: (checking) => {
+          if (checking) {
+            return !!this.api.podcast;
+          }
+          getUniversalPodcastLink(this.api);
+        }
+      });
+      this.addCommand({
+        id: "podnotes-toggle-playback",
+        name: "Toggle playback",
+        icon: "play",
+        checkCallback: (checking) => {
+          if (checking) {
+            return !!this.api.podcast;
+          }
+          this.api.togglePlayback();
         }
       });
       this.addSettingTab(new PodNotesSettingsTab(this.app, this));
@@ -8535,59 +8915,8 @@ var PodNotes = class extends import_obsidian18.Plugin {
         return this.view;
       });
       this.app.workspace.onLayoutReady(this.onLayoutReady.bind(this));
-      this.registerObsidianProtocolHandler("podnotes", (_0) => __async(this, [_0], function* ({ url, episodeName, time }) {
-        if (!url || !episodeName || !time) {
-          new import_obsidian18.Notice("URL, episode name, and timestamp are required to play an episode");
-          return;
-        }
-        const decodedName = episodeName.replace(/\+/g, " ");
-        const currentEp = get_store_value(currentEpisode);
-        const episodeIsPlaying = (currentEp == null ? void 0 : currentEp.title) === decodedName;
-        if (episodeIsPlaying) {
-          viewState.set(2 /* Player */);
-          this.api.currentTime = parseFloat(time);
-        }
-        if (!episodeIsPlaying) {
-          const pcastParser = new FeedParser();
-          const episode = yield pcastParser.findItemByTitle(decodedName, url);
-          if (!episode) {
-            new import_obsidian18.Notice("Episode not found");
-            return;
-          }
-          currentEpisode.set(episode);
-          viewState.set(2 /* Player */);
-          new import_obsidian18.Notice("Episode found, playing now. Please click timestamp again to play at specific time.");
-        }
-      }));
-      this.registerEvent(this.app.workspace.on("file-menu", (menu, file) => {
-        if (!(file instanceof import_obsidian19.TFile))
-          return;
-        if (!file.extension.match(/mp3|mp4|wma|aac|wav|webm|aac|flac|m4a|/))
-          return;
-        menu.addItem((item) => item.setIcon("play").setTitle("Play with PodNotes").onClick(() => __async(this, null, function* () {
-          var _a;
-          const localEpisode = {
-            title: file.basename,
-            description: "",
-            podcastName: "local file",
-            url: app.fileManager.generateMarkdownLink(file, ""),
-            streamUrl: yield createMediaUrlObjectFromFilePath(file.path),
-            episodeDate: new Date(file.stat.ctime)
-          };
-          if (!downloadedEpisodes.isEpisodeDownloaded(localEpisode)) {
-            downloadedEpisodes.addEpisode(localEpisode, file.path, file.stat.size);
-            localFiles.update((localFiles2) => {
-              localFiles2.episodes.push(localEpisode);
-              return localFiles2;
-            });
-          }
-          if ((_a = get_store_value(playedEpisodes)[file.basename]) == null ? void 0 : _a.finished) {
-            playedEpisodes.markAsUnplayed(localEpisode);
-          }
-          currentEpisode.set(localEpisode);
-          viewState.set(2 /* Player */);
-        })));
-      }));
+      this.registerObsidianProtocolHandler("podnotes", (action) => podNotesURIHandler(action, this.api));
+      this.registerEvent(getContextMenuHandler());
     });
   }
   onLayoutReady() {

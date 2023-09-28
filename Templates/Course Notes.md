@@ -4,7 +4,6 @@ time: {{time}}
 note_maturity: 🌱
 tags: 
 ---
-[[Machine Learning]]
 
 
 

@@ -9,5 +9,6 @@
   "newFileFolderPath": "General",
   "tabSize": 4,
   "readableLineLength": true,
-  "spellcheck": true
+  "spellcheck": true,
+  "promptDelete": false
 }

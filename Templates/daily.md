@@ -6,6 +6,7 @@ read:
 read_time:
 exercise:
 exercise_time:
+resting_heart_rate: 
 ---
 
 ### Journal
@@ -15,6 +16,8 @@ exercise_time:
 ### Social
 
 ### Exercise
+
+### Entertainment
 
 #### Tasks
 

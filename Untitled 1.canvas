@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"type":"text","text":"stephenleece_app\n- sveltekit\n- data entry\n- potentially visualizations?","id":"5314effcd42da688","x":-1160,"y":-585,"width":390,"height":150},
+		{"type":"text","text":"Database service(?)","id":"28f447aeef8c7b76","x":-80,"y":-540,"width":250,"height":60},
+		{"type":"text","text":"exercise_app\n- python\n- analytics ","id":"dbb6cbf76e45cdbe","x":-560,"y":-571,"width":290,"height":122}
+	],
+	"edges":[
+		{"id":"0fdc4e7cdbb9af91","fromNode":"5314effcd42da688","fromSide":"right","toNode":"dbb6cbf76e45cdbe","toSide":"left","label":"analytics"},
+		{"id":"870c10db4a51517a","fromNode":"28f447aeef8c7b76","fromSide":"left","toNode":"dbb6cbf76e45cdbe","toSide":"right","fromEnd":"arrow","label":"exercise data"}
+	]
+}
