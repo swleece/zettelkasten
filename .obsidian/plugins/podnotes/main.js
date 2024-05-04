@@ -6637,15 +6637,26 @@ function downloadEpisodeWithNotice(episode, downloadPathTemplate) {
     update2((bodyEl) => {
       bodyEl.createEl("p", { text: "Downloading..." });
     });
-    const { blob, responseUrl } = yield downloadFile(episode.streamUrl, {
+    const { blob } = yield downloadFile(episode.streamUrl, {
       onFinished: () => {
         update2((bodyEl) => bodyEl.createEl("p", { text: "Download complete!" }));
       },
       onError: (error) => {
-        update2((bodyEl) => bodyEl.createEl("p", { text: `Download failed: ${error.message}` }));
+        update2((bodyEl) => bodyEl.createEl("p", {
+          text: `Download failed: ${error.message}`
+        }));
       }
     });
-    if (!blob.type.contains("audio")) {
+    const fileExtension = yield detectAudioFileExtension(blob);
+    if (!fileExtension) {
+      update2((bodyEl) => {
+        bodyEl.createEl("p", {
+          text: `Could not determine file extension for downloaded file. Blob: ${blob.size} bytes.`
+        });
+      });
+      throw new Error("Could not determine file extension");
+    }
+    if (!blob.type.contains("audio") && !fileExtension) {
       update2((bodyEl) => {
         bodyEl.createEl("p", {
           text: `Downloaded file is not an audio file. It is of type "${blob.type}". Blob: ${blob.size} bytes.`
@@ -6654,12 +6665,12 @@ function downloadEpisodeWithNotice(episode, downloadPathTemplate) {
       throw new Error("Not an audio file");
     }
     try {
-      update2((bodyEl) => bodyEl.createEl("p", { text: `Creating file...` }));
+      update2((bodyEl) => bodyEl.createEl("p", { text: "Creating file..." }));
       yield createEpisodeFile({
         episode,
         downloadPathTemplate,
         blob,
-        responseUrl
+        extension: fileExtension
       });
       update2((bodyEl) => bodyEl.createEl("p", {
         text: `Successfully downloaded "${episode.title}" from ${episode.podcastName}.`
@@ -6704,10 +6715,10 @@ function createEpisodeFile(_0) {
     episode,
     downloadPathTemplate,
     blob,
-    responseUrl
+    extension
   }) {
     const basename = DownloadPathTemplateEngine(downloadPathTemplate, episode);
-    const filePath = `${basename}.${getUrlExtension(responseUrl)}`;
+    const filePath = `${basename}.${extension}`;
     const buffer = yield blob.arrayBuffer();
     try {
       yield app.vault.createBinary(filePath, buffer);
@@ -6715,6 +6726,62 @@ function createEpisodeFile(_0) {
       throw new Error(`Failed to write file "${filePath}": ${error.message}`);
     }
     downloadedEpisodes.addEpisode(episode, filePath, blob.size);
+  });
+}
+function detectAudioFileExtension(blob) {
+  return __async(this, null, function* () {
+    const audioSignatures = [
+      { signature: [255, 224], mask: [255, 224], fileExtension: "mp3" },
+      { signature: [73, 68, 51], fileExtension: "mp3" },
+      { signature: [82, 73, 70, 70], fileExtension: "wav" },
+      { signature: [79, 103, 103, 83], fileExtension: "ogg" },
+      { signature: [102, 76, 97, 67], fileExtension: "flac" },
+      { signature: [77, 52, 65, 32], fileExtension: "m4a" },
+      {
+        signature: [48, 38, 178, 117, 142, 102, 207, 17],
+        fileExtension: "wma"
+      },
+      {
+        signature: [35, 33, 65, 77, 82, 10],
+        fileExtension: "amr"
+      }
+    ];
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.onloadend = (e) => {
+        var _a;
+        if (!((_a = e.target) == null ? void 0 : _a.result)) {
+          reject(new Error("No result from file reader"));
+          return;
+        }
+        const arr = new Uint8Array(e.target.result);
+        for (const { signature, mask, fileExtension } of audioSignatures) {
+          let matches = true;
+          for (let i = 0; i < signature.length; i++) {
+            if (mask) {
+              if ((arr[i] & mask[i]) !== (signature[i] & mask[i])) {
+                matches = false;
+                break;
+              }
+            } else {
+              if (arr[i] !== signature[i]) {
+                matches = false;
+                break;
+              }
+            }
+          }
+          if (matches) {
+            resolve(fileExtension);
+            return;
+          }
+        }
+        resolve(null);
+      };
+      fileReader.onerror = () => {
+        reject(fileReader.error);
+      };
+      fileReader.readAsArrayBuffer(blob.slice(0, Math.max(...audioSignatures.map((sig) => sig.signature.length))));
+    });
   });
 }
 

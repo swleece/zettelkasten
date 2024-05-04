@@ -14,7 +14,16 @@ purpose-built box for storing/transporting a climbing rack
 
 Dog chew toy / tooth brusher
 - possibly a rope with a foam core and mesh kernmantle❓
-- 
+
+[[Climbing Inventions and Innovations]]
+- Belay/Rappel/progress capture device that will cam shut on one side if the rope end passes through the other side
+- removable rod that can be inserted into rope ends and will jam when passing through a rappel device
+	- attach brightly colored ribbon with some reflective thread to end sticking out for visibility
+	- there should be a joint in the middle between two rod sections. When twisted, teeth can extend to grab the sheath of the rope and hold the device in place
+		- alternatively, there could be a button at the end of the rod to extend / retract teeth
+
+
+
 
 
 

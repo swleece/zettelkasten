@@ -4,18 +4,93 @@
     "type": "split",
     "children": [
       {
-        "id": "23967c11f247b275",
+        "id": "f1ae1ddcbd6b3ebc",
         "type": "tabs",
         "children": [
           {
-            "id": "7075c12c9fb4fb0b",
+            "id": "3aac3ed42bca4afd",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "General/LLM Application Ideas.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "04c75286b8c5ad74",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/Reading List.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "133bd13c2f1eb029",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Personal Dashboard.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d5522db1fa3f8fdd",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md"
+              }
+            }
+          },
+          {
+            "id": "40b80a2a8686c1d7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/Neovim personal setup and configuration.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a972c9d116de7a64",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/Physical Product Ideas.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9d3a56e86d073517",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "daily/2024-05-04.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -34,7 +109,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "openai",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -49,7 +124,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "byCreatedTime"
               }
             }
           },
@@ -66,7 +141,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md"
+              }
             }
           },
           {
@@ -77,12 +154,11 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 299.5026054382324
+    "width": 290.5026054382324
   },
   "right": {
     "id": "b8ec590f60c4f8be",
@@ -99,6 +175,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,6 +192,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -145,11 +223,22 @@
             "state": {
               "type": "all-properties",
               "state": {
-                "sortOrder": "frequency"
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
               }
             }
+          },
+          {
+            "id": "d1d757fe13715430",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       },
       {
         "id": "0fbce4cdee0eefe1",
@@ -182,7 +271,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "templater-obsidian:Templater": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -190,49 +278,55 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "janitor:Janitor: scan vault": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "obsidian-spaced-repetition:Review flashcards": false
     }
   },
-  "active": "7075c12c9fb4fb0b",
+  "active": "d5522db1fa3f8fdd",
   "lastOpenFiles": [
-    "General/Computer memory management.md",
-    "General/QuickSort - algorithm.md",
-    "General/Linked List - data structure.md",
-    "General/Python Programming Fundamentals Course.md",
-    "General/Everything is a Number - concept.md",
-    "General/Python Syntax Basics.md",
-    "General/South Face of Washington Column.md",
-    "General/Two wheeled riding skill level.md",
+    "coursework/coursera_unsupervised_learning_recommenders_reinforcement_learning/week3/Deep Q-Learning - Lunar Lander.md",
+    "General/OpenAI GPT Store Ideas.md",
     "NotePad.md",
-    "General/Resolutions for 2023.md",
-    "General/Resume.md",
-    "General/Rock Climbing Yosemite Valley 2020.md",
-    "General/Seven Steps for Algorithm Design.md",
-    "General/Stack - data structure.md",
+    "Personal Dashboard.md",
+    "output_39_0.png.md",
+    "General/Exercise app ideation.canvas",
+    "Untitled.canvas",
+    "General/The Guide To LLM Evals--How To Build and Benchmark Your Evals.md",
+    "README.md.md",
+    "Untitled 2.canvas",
     "General/stephenleece_app.md",
-    "General/Strength Exercises.md",
-    "General/Sveltekit.md",
-    "General/Syntax Github next projects.md",
-    "General/TensorFlow.md",
-    "General/Testing and Debugging - course notes.md",
-    "General/The Stone Sky.md",
-    "General/Things I Might be interested in buying.md",
-    "General/thisiscatcommand app.md",
-    "General/Top Down Design and Composability.md",
-    "General/Trees - data structure.md",
-    "General/Trip planning for Yosemite April 2023.md",
+    "GlobalTasks.md.md",
+    "General/Harvard CS50 (2023).md",
+    "daily/2024-05-04.md",
+    "General/LLM Application Ideas.md",
+    "General/Reading List.md",
+    "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md",
+    "General/Untitled 5.md",
+    "General/Physical Product Ideas.md",
+    "Excalidraw/Leetcode Merge K sorted lists.excalidraw.md",
+    "General/Neovim personal setup and configuration.md",
+    "General/Untitled 4.md",
+    "Excalidraw",
+    "General/Untitled 3.md",
+    "Templates/thought or idea.md",
+    "Templates/youtube.md",
+    "General/Personal Development Environment.md",
+    "Templates/article.md",
+    "Templates/book.md",
+    "Templates/podcast.md",
+    "Attachments/Pasted image 20240317095157.png",
+    "Attachments/Pasted image 20240317094342.png",
+    "Attachments/Pasted image 20240307212821.png",
+    "Attachments/Pasted image 20240307212743.png",
+    "Attachments/Pasted image 20240226204536.png",
+    "Attachments/Make It Stick The Science of Successful Learning - kupdf.net_make-it-stick-the-science-of-successful-learning.pdf",
+    "Attachments/Pasted image 20231017074702.png",
     "Attachments/Pasted image 20230921212634.png",
     "Attachments/Pasted image 20230921211854.png",
     "Attachments/Pasted image 20230919215851.png",
     "Attachments/Pasted image 20230919151601.png",
-    "Untitled 1.canvas",
-    "Attachments/Pasted image 20230909200803.png",
-    "Untitled.canvas",
-    "Attachments/Pasted image 20230816082040.png",
-    "Attachments/Rock Climbing Yosemite Valley 2020 03 13.pdf",
-    "Attachments/Pasted image 20230316130206.png",
-    "Attachments/Pasted image 20230316130047.png",
-    "Attachments/Pasted image 20230308112518.png",
-    "Attachments/Pasted image 20230308112436.png"
+    "Attachments/Rock Climbing Yosemite Valley 2020 03 13.pdf"
   ]
 }

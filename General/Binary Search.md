@@ -21,6 +21,11 @@ log(N)
 Heuristic: if repeatedly reducing array size, then likely O(log(N)) or O(N log(N))
 
 
+## Binary Search Tree
+
+at any single node, left child (and all it's children) is l.t.e to, right child (and all it's children) is g.t.
+- very similar to quick sort
+
 
 
 
@@ -36,6 +41,7 @@ Heuristic: if repeatedly reducing array size, then likely O(log(N)) or O(N log(N
 #### 🧭  Idea Compass
 - West  (similar) 
 [[Algorithms]]
+[[The Last Algorithms Course You'll Need - ThePrimeagen]]
 - East (opposite)
 
 - North (theme/question)

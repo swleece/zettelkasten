@@ -1,12 +1,13 @@
 ---
-date: {{date}}
+date: {{date:YYYY-MM-DD}}
 time: {{time}}
-tags: 
-read:
-read_time:
-exercise:
-exercise_time:
-resting_heart_rate: 
+tags:
+  - daily
+read: 
+read_time: 
+exercise: 
+exercise_time: 
+resting_heart_rate:
 ---
 
 ### Journal
@@ -36,4 +37,5 @@ resting_heart_rate:
 sort by priority
 sort by due
 not done
+no cancelled date
 ```

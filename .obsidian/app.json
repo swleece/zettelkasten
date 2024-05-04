@@ -8,7 +8,8 @@
   "newFileLocation": "folder",
   "newFileFolderPath": "General",
   "tabSize": 4,
-  "readableLineLength": true,
+  "readableLineLength": false,
   "spellcheck": true,
-  "promptDelete": false
+  "promptDelete": false,
+  "propertiesInDocument": "source"
 }

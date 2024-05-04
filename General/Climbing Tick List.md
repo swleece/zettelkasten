@@ -9,7 +9,8 @@ tags: personal, climbing
 
 [[Levitation 29]]
 [[South Face of Washington Column]]
-
+Astroman
+- [supertopo](http://www.supertopo.com/topos/yosemite/astroman.pdf)
 
 
 

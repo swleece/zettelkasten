@@ -1,10 +1,14 @@
 ---
-date: {{date}}
+date: {{date:YYYY-MM-DD}}
 time: {{time}}
 note_maturity: 🌱
-tags: youtube
-link: 
+tags:
+  - article
+link:
 ---
+# {{title}}
+
+
 
 
 

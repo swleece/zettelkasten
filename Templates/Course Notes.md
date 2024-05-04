@@ -1,9 +1,13 @@
 ---
-date: {{date}}
+date: {{date:YYYY-MM-DD}}
 time: {{time}}
 note_maturity: 🌱
-tags: 
+tags:
+  - course-notes
+link:
 ---
+# {{title}}
+
 
 
 

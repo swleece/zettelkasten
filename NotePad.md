@@ -10,21 +10,20 @@ app ideas:
 possible todo:
 - try to write a selenium test for MT view
 
-### gpt app idea:
+idea:
+- llm that analyzes an article as you read it and fact checks it
 
-rental searcher:
-- hooks up to AirBnB, craigslist, etc. 
-- matches your criteria to listing
+1/21
+- configure tmux (arrow keys, keybinds), neovim (reorganize, add plugins), terminal (better colors for bat, fonts/glyphs compatible with neovim/tmux)
+- explore work on langchain app:
+	- something to help with writing selenium tests
+	- something to help with answer questions based on my markdown notes
 
-LLM powered tool to identify risk of code changes within a repo:
-- use attributes of bug/gh issue fixes stored in vector db embeddings
-	- paths to files, filenames
-	- sets of files
-	- actual code changes
+1/30
+- llm app idea: 
+	- background check: given an image and name, search for someone on the web on public platforms only
 
-LangFlow library website (like an "ai factory")
+3/9
+chat with dom idea:
+- ideally, would be able to get the dom as you step through driver instructions
 
-Options to speed up 
-
-chatbot idea: 
-- advanced carbon footprint estimator
