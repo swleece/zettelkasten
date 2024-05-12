@@ -4,93 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "f1ae1ddcbd6b3ebc",
+        "id": "73e1c1cf1a06107c",
         "type": "tabs",
         "children": [
           {
-            "id": "3aac3ed42bca4afd",
+            "id": "90e9b8a1ce9844d8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "General/LLM Application Ideas.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "04c75286b8c5ad74",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "General/Reading List.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "133bd13c2f1eb029",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Personal Dashboard.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d5522db1fa3f8fdd",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md"
-              }
-            }
-          },
-          {
-            "id": "40b80a2a8686c1d7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "General/Neovim personal setup and configuration.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a972c9d116de7a64",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "General/Physical Product Ideas.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9d3a56e86d073517",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "daily/2024-05-04.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -109,7 +34,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "openai",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -141,9 +66,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md"
-              }
+              "state": {}
             }
           },
           {
@@ -154,11 +77,12 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 290.5026054382324
+    "width": 246.50260543823242
   },
   "right": {
     "id": "b8ec590f60c4f8be",
@@ -175,7 +99,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -192,7 +115,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -280,16 +202,29 @@
       "janitor:Janitor: scan vault": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "templater-obsidian:Templater": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
-      "obsidian-spaced-repetition:Review flashcards": false
+      "obsidian-spaced-repetition:Review flashcards": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "d5522db1fa3f8fdd",
+  "active": "90e9b8a1ce9844d8",
   "lastOpenFiles": [
+    "daily/2024-05-11.md",
+    "General/Maximum Sum Subarray Problem.md",
+    "General/Maximum Product Subarray.md",
+    "General/Untitled 6.md",
+    "General/Flashcard Maker.md",
+    "General/Home Networking.md",
+    "General/Reading List.md",
+    "General/LLM Application Ideas.md",
+    "Obsidian/Obsidian Setup todo.md",
+    "daily/2024-05-04.md",
+    "General/Physical Product Ideas.md",
+    "General/Neovim personal setup and configuration.md",
+    "Personal Dashboard.md",
+    "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md",
     "coursework/coursera_unsupervised_learning_recommenders_reinforcement_learning/week3/Deep Q-Learning - Lunar Lander.md",
     "General/OpenAI GPT Store Ideas.md",
     "NotePad.md",
-    "Personal Dashboard.md",
     "output_39_0.png.md",
     "General/Exercise app ideation.canvas",
     "Untitled.canvas",
@@ -299,23 +234,10 @@
     "General/stephenleece_app.md",
     "GlobalTasks.md.md",
     "General/Harvard CS50 (2023).md",
-    "daily/2024-05-04.md",
-    "General/LLM Application Ideas.md",
-    "General/Reading List.md",
-    "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md",
     "General/Untitled 5.md",
-    "General/Physical Product Ideas.md",
     "Excalidraw/Leetcode Merge K sorted lists.excalidraw.md",
-    "General/Neovim personal setup and configuration.md",
     "General/Untitled 4.md",
     "Excalidraw",
-    "General/Untitled 3.md",
-    "Templates/thought or idea.md",
-    "Templates/youtube.md",
-    "General/Personal Development Environment.md",
-    "Templates/article.md",
-    "Templates/book.md",
-    "Templates/podcast.md",
     "Attachments/Pasted image 20240317095157.png",
     "Attachments/Pasted image 20240317094342.png",
     "Attachments/Pasted image 20240307212821.png",

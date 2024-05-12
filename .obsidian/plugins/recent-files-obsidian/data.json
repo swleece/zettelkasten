@@ -1,6 +1,58 @@
 {
   "recentFiles": [
     {
+      "basename": "2024-05-11",
+      "path": "daily/2024-05-11.md"
+    },
+    {
+      "basename": "Maximum Sum Subarray Problem",
+      "path": "General/Maximum Sum Subarray Problem.md"
+    },
+    {
+      "basename": "Maximum Product Subarray",
+      "path": "General/Maximum Product Subarray.md"
+    },
+    {
+      "basename": "Untitled 6",
+      "path": "General/Untitled 6.md"
+    },
+    {
+      "basename": "Flashcard Maker",
+      "path": "General/Flashcard Maker.md"
+    },
+    {
+      "basename": "Home Networking",
+      "path": "General/Home Networking.md"
+    },
+    {
+      "basename": "Reading List",
+      "path": "General/Reading List.md"
+    },
+    {
+      "basename": "LLM Application Ideas",
+      "path": "General/LLM Application Ideas.md"
+    },
+    {
+      "basename": "Obsidian Setup todo",
+      "path": "Obsidian/Obsidian Setup todo.md"
+    },
+    {
+      "basename": "2024-05-04",
+      "path": "daily/2024-05-04.md"
+    },
+    {
+      "basename": "Physical Product Ideas",
+      "path": "General/Physical Product Ideas.md"
+    },
+    {
+      "basename": "Neovim personal setup and configuration",
+      "path": "General/Neovim personal setup and configuration.md"
+    },
+    {
+      "basename": "Personal Dashboard",
+      "path": "Personal Dashboard.md"
+    },
+    {
       "basename": "Drawing 2024-04-21 08.07.04.excalidraw",
       "path": "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md"
     },
@@ -15,10 +67,6 @@
     {
       "basename": "NotePad",
       "path": "NotePad.md"
-    },
-    {
-      "basename": "Personal Dashboard",
-      "path": "Personal Dashboard.md"
     },
     {
       "basename": "Exercise app ideation",
@@ -45,32 +93,12 @@
       "path": "General/Harvard CS50 (2023).md"
     },
     {
-      "basename": "2024-05-04",
-      "path": "daily/2024-05-04.md"
-    },
-    {
-      "basename": "Physical Product Ideas",
-      "path": "General/Physical Product Ideas.md"
-    },
-    {
-      "basename": "LLM Application Ideas",
-      "path": "General/LLM Application Ideas.md"
-    },
-    {
-      "basename": "Reading List",
-      "path": "General/Reading List.md"
-    },
-    {
       "basename": "Untitled 5",
       "path": "General/Untitled 5.md"
     },
     {
       "basename": "Leetcode Merge K sorted lists.excalidraw",
       "path": "Excalidraw/Leetcode Merge K sorted lists.excalidraw.md"
-    },
-    {
-      "basename": "Neovim personal setup and configuration",
-      "path": "General/Neovim personal setup and configuration.md"
     },
     {
       "basename": "Untitled 4",
@@ -133,10 +161,6 @@
       "path": "General/February 2024 Climbing Plans.md"
     },
     {
-      "basename": "Home Networking",
-      "path": "General/Home Networking.md"
-    },
-    {
       "basename": "DOM Chat App",
       "path": "General/DOM Chat App.md"
     },
@@ -175,30 +199,6 @@
     {
       "basename": "2023-03-11",
       "path": "daily/2023-03-11.md"
-    },
-    {
-      "basename": "2023-03-01",
-      "path": "daily/2023-03-01.md"
-    },
-    {
-      "basename": "2023-02-27",
-      "path": "daily/2023-02-27.md"
-    },
-    {
-      "basename": "2023-02-26",
-      "path": "daily/2023-02-26.md"
-    },
-    {
-      "basename": "2023-02-18",
-      "path": "daily/2023-02-18.md"
-    },
-    {
-      "basename": "2023-02-19",
-      "path": "daily/2023-02-19.md"
-    },
-    {
-      "basename": "2023-02-20",
-      "path": "daily/2023-02-20.md"
     }
   ],
   "omittedPaths": [],
