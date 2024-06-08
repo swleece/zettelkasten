@@ -4208,10 +4208,11 @@ function NoteTemplateEngine(template, episode) {
   const [replacer, addTag] = useTemplateEngine();
   addTag("title", episode.title);
   addTag("description", (prependToLines) => {
+    const sanitizeDescription = (0, import_obsidian9.htmlToMarkdown)(episode.description).replace(/\n{3,}/g, "\n\n");
     if (prependToLines) {
-      return (0, import_obsidian9.htmlToMarkdown)(episode.description).split("\n").map((str) => `${prependToLines}${str}`).join("\n");
+      return sanitizeDescription.split("\n").map((str) => `${prependToLines}${str}`).join("\n");
     }
-    return (0, import_obsidian9.htmlToMarkdown)(episode.description);
+    return sanitizeDescription;
   });
   addTag("content", (prependToLines) => {
     if (prependToLines) {
@@ -4222,7 +4223,7 @@ function NoteTemplateEngine(template, episode) {
   addTag("safetitle", replaceIllegalFileNameCharactersInString(episode.title));
   addTag("url", episode.url);
   addTag("date", (format2) => episode.episodeDate ? window.moment(episode.episodeDate).format(format2 != null ? format2 : "YYYY-MM-DD") : "");
-  addTag("podcast", episode.podcastName);
+  addTag("podcast", replaceIllegalFileNameCharactersInString(episode.podcastName));
   addTag("artwork", (_a = episode.artworkUrl) != null ? _a : "");
   return replacer(template);
 }
@@ -4273,7 +4274,7 @@ function DownloadPathTemplateEngine(template, episode) {
   return replacer(templateWithoutExtension);
 }
 function replaceIllegalFileNameCharactersInString(string) {
-  return string.replace(/[\\,#%&{}/*<>$'":@\u2023|?]*/g, "").replace(/\n/, " ").replace("  ", " ");
+  return string.replace(/[\\,#%&{}/*<>$'":@\u2023|\\.]/g, "").replace(/\n/, " ").replace("  ", " ");
 }
 
 // src/opml.ts
