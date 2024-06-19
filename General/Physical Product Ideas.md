@@ -22,6 +22,13 @@ Dog chew toy / tooth brusher
 	- there should be a joint in the middle between two rod sections. When twisted, teeth can extend to grab the sheath of the rope and hold the device in place
 		- alternatively, there could be a button at the end of the rod to extend / retract teeth
 
+Snow density measurement for avalanche risk prediction:
+- laser based
+	- can you determine density by shining a laser through snow?
+- thermal gravimetric
+	- can you measure melting rate of snow to determine density?
+- simple gravimetric
+	- can you measure the weight of snow at fine enough resolution
 
 
 

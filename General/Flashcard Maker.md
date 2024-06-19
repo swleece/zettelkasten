@@ -8,3 +8,5 @@ tags:
 
 # Flashcard Maker
 
+GPT application idea
+Currently just using a plugin (Copilot) with ollama and llama3 locally to achieve this 

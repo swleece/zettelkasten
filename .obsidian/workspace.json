@@ -8,18 +8,31 @@
         "type": "tabs",
         "children": [
           {
-            "id": "51b6fb6948b31fc1",
+            "id": "b498625141a24531",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Article/Introduction to Ensembling_Stacking in Python.md",
+                "file": "General/Physical Product Ideas.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a677af909c59f9e8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "daily/2024-06-19.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -38,7 +51,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": ";;",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -71,7 +84,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Article/Introduction to Ensembling_Stacking in Python.md"
+                "file": "daily/2024-06-19.md"
               }
             }
           },
@@ -82,13 +95,22 @@
               "type": "bookmarks",
               "state": {}
             }
+          },
+          {
+            "id": "b1d0699bec8cf259",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-chat-view",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 246.50260543823242
+    "width": 594.5110359191895,
+    "collapsed": true
   },
   "right": {
     "id": "b8ec590f60c4f8be",
@@ -105,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Article/Introduction to Ensembling_Stacking in Python.md",
+                "file": "daily/2024-06-19.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Article/Introduction to Ensembling_Stacking in Python.md",
+                "file": "daily/2024-06-19.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -196,7 +218,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 313.5,
+    "width": 726.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -210,13 +232,34 @@
       "janitor:Janitor: scan vault": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "obsidian-spaced-repetition:Review flashcards": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
       "obsidian-kanban:Create new board": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "copilot:Copilot Chat": false
     }
   },
-  "active": "51b6fb6948b31fc1",
+  "active": "a677af909c59f9e8",
   "lastOpenFiles": [
+    "General/Physical Product Ideas.md",
+    "daily/2024-06-19.md",
+    "General/Harvard CS50 (2023).md",
+    "Obsidian/Local Obsidian Setup.md",
+    "General/Mark Rober youtube formula.md",
+    "General/Climbing Tick list tabular (Feb, 2023).md",
+    "General/South Face of Washington Column.md",
+    "General/How to Aid Climbing.md",
+    "General/Huberman on How to Breathe Correctly.md",
+    "General/Path Finding - recursion.md",
+    "General/Computer Science.md",
+    "General/Opportunities in AI - 2023.md",
+    "General/Things I Might be interested in buying.md",
+    "General/Breadth-First Search.md",
+    "General/Python Programming Fundamentals Course.md",
+    "General/Seven Steps for Algorithm Design.md",
+    "General/Nix.md",
+    "General/Flashcard Maker.md",
+    "Article/Introduction to Ensembling_Stacking in Python.md",
+    "General/Princeton - Algorithms Part I - Coursera.md",
     "Article/TheFutureOfLargeLanguageModelPretrainingIsFederated.pdf",
     "Article/WorldwideFederatedTrainingOfLanguageModels.pdf",
     "daily/2024-05-21.md",
@@ -225,28 +268,9 @@
     "General/Maximum Sum Subarray Problem.md",
     "General/Maximum Product Subarray.md",
     "General/Untitled 6.md",
-    "General/Flashcard Maker.md",
-    "General/Home Networking.md",
-    "General/Reading List.md",
-    "General/LLM Application Ideas.md",
-    "Obsidian/Obsidian Setup todo.md",
-    "daily/2024-05-04.md",
-    "General/Physical Product Ideas.md",
-    "General/Neovim personal setup and configuration.md",
-    "Personal Dashboard.md",
-    "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md",
-    "coursework/coursera_unsupervised_learning_recommenders_reinforcement_learning/week3/Deep Q-Learning - Lunar Lander.md",
-    "General/OpenAI GPT Store Ideas.md",
-    "NotePad.md",
-    "output_39_0.png.md",
     "General/Exercise app ideation.canvas",
     "Untitled.canvas",
-    "General/The Guide To LLM Evals--How To Build and Benchmark Your Evals.md",
-    "README.md.md",
     "Untitled 2.canvas",
-    "General/stephenleece_app.md",
-    "GlobalTasks.md.md",
-    "General/Harvard CS50 (2023).md",
     "Excalidraw",
     "Attachments/Pasted image 20240317095157.png",
     "Attachments/Pasted image 20240317094342.png",

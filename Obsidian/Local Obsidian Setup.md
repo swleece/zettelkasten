@@ -50,6 +50,9 @@ tags: obsidian, local_environment, productivity, pkm
 - Editor Syntax Highlights
 - [Templater](https://silentvoid13.github.io/Templater/)
 - supercharged links
+- copilot (using with ollama and llama3 locally)
+- spaced repetition
+
 
 Installed but not configured:
 - obsidian-emoji-toolbar : quick emoji picker

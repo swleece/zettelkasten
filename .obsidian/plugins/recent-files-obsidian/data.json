@@ -1,8 +1,84 @@
 {
   "recentFiles": [
     {
+      "basename": "2024-06-19",
+      "path": "daily/2024-06-19.md"
+    },
+    {
+      "basename": "Physical Product Ideas",
+      "path": "General/Physical Product Ideas.md"
+    },
+    {
+      "basename": "Harvard CS50 (2023)",
+      "path": "General/Harvard CS50 (2023).md"
+    },
+    {
+      "basename": "Local Obsidian Setup",
+      "path": "Obsidian/Local Obsidian Setup.md"
+    },
+    {
+      "basename": "Mark Rober youtube formula",
+      "path": "General/Mark Rober youtube formula.md"
+    },
+    {
+      "basename": "Climbing Tick list tabular (Feb, 2023)",
+      "path": "General/Climbing Tick list tabular (Feb, 2023).md"
+    },
+    {
+      "basename": "South Face of Washington Column",
+      "path": "General/South Face of Washington Column.md"
+    },
+    {
+      "basename": "How to Aid Climbing",
+      "path": "General/How to Aid Climbing.md"
+    },
+    {
+      "basename": "Huberman on How to Breathe Correctly",
+      "path": "General/Huberman on How to Breathe Correctly.md"
+    },
+    {
+      "basename": "Path Finding - recursion",
+      "path": "General/Path Finding - recursion.md"
+    },
+    {
+      "basename": "Computer Science",
+      "path": "General/Computer Science.md"
+    },
+    {
+      "basename": "Opportunities in AI - 2023",
+      "path": "General/Opportunities in AI - 2023.md"
+    },
+    {
+      "basename": "Things I Might be interested in buying",
+      "path": "General/Things I Might be interested in buying.md"
+    },
+    {
+      "basename": "Breadth-First Search",
+      "path": "General/Breadth-First Search.md"
+    },
+    {
+      "basename": "Python Programming Fundamentals Course",
+      "path": "General/Python Programming Fundamentals Course.md"
+    },
+    {
+      "basename": "Seven Steps for Algorithm Design",
+      "path": "General/Seven Steps for Algorithm Design.md"
+    },
+    {
+      "basename": "Nix",
+      "path": "General/Nix.md"
+    },
+    {
+      "basename": "Flashcard Maker",
+      "path": "General/Flashcard Maker.md"
+    },
+    {
       "basename": "Introduction to Ensembling_Stacking in Python",
       "path": "Article/Introduction to Ensembling_Stacking in Python.md"
+    },
+    {
+      "basename": "Princeton - Algorithms Part I - Coursera",
+      "path": "General/Princeton - Algorithms Part I - Coursera.md"
     },
     {
       "basename": "2024-05-21",
@@ -29,10 +105,6 @@
       "path": "General/Untitled 6.md"
     },
     {
-      "basename": "Flashcard Maker",
-      "path": "General/Flashcard Maker.md"
-    },
-    {
       "basename": "Home Networking",
       "path": "General/Home Networking.md"
     },
@@ -51,10 +123,6 @@
     {
       "basename": "2024-05-04",
       "path": "daily/2024-05-04.md"
-    },
-    {
-      "basename": "Physical Product Ideas",
-      "path": "General/Physical Product Ideas.md"
     },
     {
       "basename": "Neovim personal setup and configuration",
@@ -101,10 +169,6 @@
       "path": "GlobalTasks.md.md"
     },
     {
-      "basename": "Harvard CS50 (2023)",
-      "path": "General/Harvard CS50 (2023).md"
-    },
-    {
       "basename": "Untitled 5",
       "path": "General/Untitled 5.md"
     },
@@ -135,70 +199,6 @@
     {
       "basename": "article",
       "path": "Templates/article.md"
-    },
-    {
-      "basename": "book",
-      "path": "Templates/book.md"
-    },
-    {
-      "basename": "podcast",
-      "path": "Templates/podcast.md"
-    },
-    {
-      "basename": "Course Notes",
-      "path": "Templates/Course Notes.md"
-    },
-    {
-      "basename": "project",
-      "path": "Templates/project.md"
-    },
-    {
-      "basename": "daily",
-      "path": "Templates/daily.md"
-    },
-    {
-      "basename": "Home Automation",
-      "path": "General/Home Automation.md"
-    },
-    {
-      "basename": "Untitled 2",
-      "path": "General/Untitled 2.md"
-    },
-    {
-      "basename": "Neovim Commands Learning Aid",
-      "path": "General/Neovim Commands Learning Aid.md"
-    },
-    {
-      "basename": "February 2024 Climbing Plans",
-      "path": "General/February 2024 Climbing Plans.md"
-    },
-    {
-      "basename": "DOM Chat App",
-      "path": "General/DOM Chat App.md"
-    },
-    {
-      "basename": "Nix",
-      "path": "General/Nix.md"
-    },
-    {
-      "basename": "2024-02-09",
-      "path": "daily/2024-02-09.md"
-    },
-    {
-      "basename": "2024-02-02",
-      "path": "daily/2024-02-02.md"
-    },
-    {
-      "basename": "HTMX Practical Notes",
-      "path": "General/HTMX Practical Notes.md"
-    },
-    {
-      "basename": "Untitled 1",
-      "path": "General/Untitled 1.md"
-    },
-    {
-      "basename": "ML AI News Resources",
-      "path": "General/ML AI News Resources.md"
     }
   ],
   "omittedPaths": [],

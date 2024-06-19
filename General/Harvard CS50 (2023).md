@@ -216,13 +216,13 @@ Buffer overflows:
 - enqueue - add to the *end* of the queue
 - dequeue - remove from *front* of the queue
 flashcard: data structure, first in first out;; queue
-<!--SR:!2024-05-07,3,250-->
+<!--SR:!2024-06-29,10,270-->
 
 **stack**: LIFO, last in first out
 - push - add to the *top* of the stack
 - pop - remove from the *top* of the stach
-flashcard: data structure, last in first out;; queue
-<!--SR:!2024-05-07,3,250-->
+flashcard: data structure, last in first out;; stack
+<!--SR:!2024-06-28,9,250-->
 
 ```C
 typedef struct
