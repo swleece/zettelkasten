@@ -46,6 +46,8 @@ Snow density measurement for avalanche risk prediction:
 
 
 
+
+
  #### 🧭  Idea Compass
 - West  (similar) 
 [[Climbing Inventions and Innovations]]

@@ -1,12 +1,100 @@
 {
   "recentFiles": [
     {
-      "basename": "2024-06-19",
-      "path": "daily/2024-06-19.md"
+      "basename": "2024-09-23",
+      "path": "daily/2024-09-23.md"
+    },
+    {
+      "basename": "2024-09-01",
+      "path": "daily/2024-09-01.md"
+    },
+    {
+      "basename": "The Pragmatic Programmer",
+      "path": "Books/The Pragmatic Programmer.md"
+    },
+    {
+      "basename": "Software Development Glossary",
+      "path": "General/Software Development Glossary.md"
+    },
+    {
+      "basename": "Notes",
+      "path": "General/Notes.md"
+    },
+    {
+      "basename": "2024-08-21",
+      "path": "daily/2024-08-21.md"
+    },
+    {
+      "basename": "NotePad 2023 2024",
+      "path": "NotePad 2023 2024.md"
+    },
+    {
+      "basename": "Stuff l've lost",
+      "path": "General/Stuff l've lost.md"
+    },
+    {
+      "basename": "Dune",
+      "path": "General/Dune.md"
+    },
+    {
+      "basename": "Children of Dune",
+      "path": "General/Children of Dune.md"
+    },
+    {
+      "basename": "God Emperor of Dune",
+      "path": "General/God Emperor of Dune.md"
+    },
+    {
+      "basename": "Dune Messiah",
+      "path": "General/Dune Messiah.md"
+    },
+    {
+      "basename": "Ministry for the Future",
+      "path": "Books/Ministry for the Future.md"
+    },
+    {
+      "basename": "The Pragmatic Programmer",
+      "path": "General/The Pragmatic Programmer.md"
+    },
+    {
+      "basename": "Python Learning via Chat",
+      "path": "General/Python Learning via Chat.md"
     },
     {
       "basename": "Physical Product Ideas",
       "path": "General/Physical Product Ideas.md"
+    },
+    {
+      "basename": "Strength Training",
+      "path": "General/Strength Training.md"
+    },
+    {
+      "basename": "Home Gym Setup",
+      "path": "General/Home Gym Setup.md"
+    },
+    {
+      "basename": "2024-08-04",
+      "path": "daily/2024-08-04.md"
+    },
+    {
+      "basename": "Python Features Practical",
+      "path": "General/Python Features Practical.md"
+    },
+    {
+      "basename": "2024-06-23",
+      "path": "daily/2024-06-23.md"
+    },
+    {
+      "basename": "Untitled 7",
+      "path": "General/Untitled 7.md"
+    },
+    {
+      "basename": "2024-07-31",
+      "path": "daily/2024-07-31.md"
+    },
+    {
+      "basename": "2024-06-19",
+      "path": "daily/2024-06-19.md"
     },
     {
       "basename": "Harvard CS50 (2023)",
@@ -111,94 +199,6 @@
     {
       "basename": "Reading List",
       "path": "General/Reading List.md"
-    },
-    {
-      "basename": "LLM Application Ideas",
-      "path": "General/LLM Application Ideas.md"
-    },
-    {
-      "basename": "Obsidian Setup todo",
-      "path": "Obsidian/Obsidian Setup todo.md"
-    },
-    {
-      "basename": "2024-05-04",
-      "path": "daily/2024-05-04.md"
-    },
-    {
-      "basename": "Neovim personal setup and configuration",
-      "path": "General/Neovim personal setup and configuration.md"
-    },
-    {
-      "basename": "Personal Dashboard",
-      "path": "Personal Dashboard.md"
-    },
-    {
-      "basename": "Drawing 2024-04-21 08.07.04.excalidraw",
-      "path": "Excalidraw/Drawing 2024-04-21 08.07.04.excalidraw.md"
-    },
-    {
-      "basename": "Deep Q-Learning - Lunar Lander",
-      "path": "coursework/coursera_unsupervised_learning_recommenders_reinforcement_learning/week3/Deep Q-Learning - Lunar Lander.md"
-    },
-    {
-      "basename": "OpenAI GPT Store Ideas",
-      "path": "General/OpenAI GPT Store Ideas.md"
-    },
-    {
-      "basename": "NotePad",
-      "path": "NotePad.md"
-    },
-    {
-      "basename": "Exercise app ideation",
-      "path": "General/Exercise app ideation.canvas"
-    },
-    {
-      "basename": "The Guide To LLM Evals--How To Build and Benchmark Your Evals",
-      "path": "General/The Guide To LLM Evals--How To Build and Benchmark Your Evals.md"
-    },
-    {
-      "basename": "README.md",
-      "path": "README.md.md"
-    },
-    {
-      "basename": "stephenleece_app",
-      "path": "General/stephenleece_app.md"
-    },
-    {
-      "basename": "GlobalTasks.md",
-      "path": "GlobalTasks.md.md"
-    },
-    {
-      "basename": "Untitled 5",
-      "path": "General/Untitled 5.md"
-    },
-    {
-      "basename": "Leetcode Merge K sorted lists.excalidraw",
-      "path": "Excalidraw/Leetcode Merge K sorted lists.excalidraw.md"
-    },
-    {
-      "basename": "Untitled 4",
-      "path": "General/Untitled 4.md"
-    },
-    {
-      "basename": "Untitled 3",
-      "path": "General/Untitled 3.md"
-    },
-    {
-      "basename": "thought or idea",
-      "path": "Templates/thought or idea.md"
-    },
-    {
-      "basename": "youtube",
-      "path": "Templates/youtube.md"
-    },
-    {
-      "basename": "Personal Development Environment",
-      "path": "General/Personal Development Environment.md"
-    },
-    {
-      "basename": "article",
-      "path": "Templates/article.md"
     }
   ],
   "omittedPaths": [],
