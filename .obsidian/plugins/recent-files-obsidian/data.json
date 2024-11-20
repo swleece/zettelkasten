@@ -1,6 +1,46 @@
 {
   "recentFiles": [
     {
+      "basename": "Structure and Interpretation of Computer Programs",
+      "path": "General/Structure and Interpretation of Computer Programs.md"
+    },
+    {
+      "basename": "Stuff l've lost",
+      "path": "General/Stuff l've lost.md"
+    },
+    {
+      "basename": "2024-11-10",
+      "path": "daily/2024-11-10.md"
+    },
+    {
+      "basename": "NotePad 2023 2024",
+      "path": "NotePad 2023 2024.md"
+    },
+    {
+      "basename": "Software Development Glossary",
+      "path": "General/Software Development Glossary.md"
+    },
+    {
+      "basename": "2024-09-30",
+      "path": "daily/2024-09-30.md"
+    },
+    {
+      "basename": "Notes",
+      "path": "General/Notes.md"
+    },
+    {
+      "basename": "Japan Trip Fall 2024",
+      "path": "General/Japan Trip Fall 2024.md"
+    },
+    {
+      "basename": "Untitled 8",
+      "path": "General/Untitled 8.md"
+    },
+    {
+      "basename": "LLM Application Ideas",
+      "path": "General/LLM Application Ideas.md"
+    },
+    {
       "basename": "2024-09-23",
       "path": "daily/2024-09-23.md"
     },
@@ -13,24 +53,8 @@
       "path": "Books/The Pragmatic Programmer.md"
     },
     {
-      "basename": "Software Development Glossary",
-      "path": "General/Software Development Glossary.md"
-    },
-    {
-      "basename": "Notes",
-      "path": "General/Notes.md"
-    },
-    {
       "basename": "2024-08-21",
       "path": "daily/2024-08-21.md"
-    },
-    {
-      "basename": "NotePad 2023 2024",
-      "path": "NotePad 2023 2024.md"
-    },
-    {
-      "basename": "Stuff l've lost",
-      "path": "General/Stuff l've lost.md"
     },
     {
       "basename": "Dune",
@@ -175,33 +199,10 @@
     {
       "basename": "2024-05-19",
       "path": "daily/2024-05-19.md"
-    },
-    {
-      "basename": "2024-05-11",
-      "path": "daily/2024-05-11.md"
-    },
-    {
-      "basename": "Maximum Sum Subarray Problem",
-      "path": "General/Maximum Sum Subarray Problem.md"
-    },
-    {
-      "basename": "Maximum Product Subarray",
-      "path": "General/Maximum Product Subarray.md"
-    },
-    {
-      "basename": "Untitled 6",
-      "path": "General/Untitled 6.md"
-    },
-    {
-      "basename": "Home Networking",
-      "path": "General/Home Networking.md"
-    },
-    {
-      "basename": "Reading List",
-      "path": "General/Reading List.md"
     }
   ],
   "omittedPaths": [],
+  "omittedTags": [],
   "maxLength": null,
   "openType": "tab"
 }

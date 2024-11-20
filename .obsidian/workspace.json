@@ -8,15 +8,59 @@
         "type": "tabs",
         "children": [
           {
-            "id": "2f588429d602e6e7",
+            "id": "32a195889db2b5ae",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/2024-09-23.md",
+                "file": "daily/2024-09-30.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "2024-09-30"
+            }
+          },
+          {
+            "id": "27b398116cf4f27e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NotePad 2023 2024.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "NotePad 2023 2024"
+            }
+          },
+          {
+            "id": "dd747d04a2659cf0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "daily/2024-11-10.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-11-10"
+            }
+          },
+          {
+            "id": "045c7cce1aea2c14",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/LLM Application Ideas.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "LLM Application Ideas"
             }
           },
           {
@@ -28,22 +72,41 @@
                 "file": "General/Stuff l've lost.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Stuff l've lost"
             }
           },
           {
-            "id": "d6a84577fb77ef3e",
+            "id": "aa42513f4c8fc7fe",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General/Notes.md",
+                "file": "General/Japan Trip Fall 2024.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Japan Trip Fall 2024"
+            }
+          },
+          {
+            "id": "e260a1a927430b0d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/Structure and Interpretation of Computer Programs.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Structure and Interpretation of Computer Programs"
             }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -68,7 +131,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -78,7 +143,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "byCreatedTime"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -86,7 +153,9 @@
             "type": "leaf",
             "state": {
               "type": "starred",
-              "state": {}
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           },
           {
@@ -95,8 +164,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "daily/2024-09-23.md"
-              }
+                "file": "General/Structure and Interpretation of Computer Programs.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Structure and Interpretation of Computer Programs"
             }
           },
           {
@@ -104,15 +175,17 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 323.50390243530273
+    "width": 289.50390243530273
   },
   "right": {
     "id": "b8ec590f60c4f8be",
@@ -121,7 +194,7 @@
       {
         "id": "ef24926cbdffa823",
         "type": "tabs",
-        "dimension": 80.83650190114069,
+        "dimension": 80.83650190114068,
         "children": [
           {
             "id": "a4ae6cbe29691915",
@@ -129,7 +202,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "daily/2024-09-23.md",
+                "file": "General/Structure and Interpretation of Computer Programs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -137,7 +210,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Structure and Interpretation of Computer Programs"
             }
           },
           {
@@ -146,10 +221,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "daily/2024-09-23.md",
+                "file": "General/Structure and Interpretation of Computer Programs.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Structure and Interpretation of Computer Programs"
             }
           },
           {
@@ -160,7 +237,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": false
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -168,7 +247,9 @@
             "type": "leaf",
             "state": {
               "type": "advanced-tables-toolbar",
-              "state": {}
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
             }
           },
           {
@@ -180,15 +261,9 @@
                 "sortOrder": "frequency",
                 "showSearch": false,
                 "searchQuery": ""
-              }
-            }
-          },
-          {
-            "id": "bfb5b6a0cc281b48",
-            "type": "leaf",
-            "state": {
-              "type": "review-queue-list-view",
-              "state": {}
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
             }
           },
           {
@@ -196,7 +271,19 @@
             "type": "leaf",
             "state": {
               "type": "copilot-chat-view",
-              "state": {}
+              "state": {},
+              "icon": "message-square",
+              "title": "Copilot"
+            }
+          },
+          {
+            "id": "9270e8dc3e5e799b",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {},
+              "icon": "SpacedRepIcon",
+              "title": "Notes Review Queue"
             }
           }
         ],
@@ -205,14 +292,16 @@
       {
         "id": "0fbce4cdee0eefe1",
         "type": "tabs",
-        "dimension": 19.163498098859318,
+        "dimension": 19.163498098859314,
         "children": [
           {
             "id": "a072a2c27b6d7652",
             "type": "leaf",
             "state": {
               "type": "calendar",
-              "state": {}
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
             }
           },
           {
@@ -220,7 +309,9 @@
             "type": "leaf",
             "state": {
               "type": "recent-files",
-              "state": {}
+              "state": {},
+              "icon": "clock",
+              "title": "Recent Files"
             }
           }
         ],
@@ -248,16 +339,24 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "c6d164edd191fd1e",
+  "active": "e260a1a927430b0d",
   "lastOpenFiles": [
-    "daily/2024-09-01.md",
-    "daily/2024-09-23.md",
-    "Books/The Pragmatic Programmer.md",
-    "General/Software Development Glossary.md",
-    "General/Notes.md",
-    "daily/2024-08-21.md",
-    "NotePad 2023 2024.md",
+    "Books/StructureAndInterpretationOfComputerPrograms.pdf",
+    "General/Japan Trip Fall 2024.md",
     "General/Stuff l've lost.md",
+    "General/LLM Application Ideas.md",
+    "daily/2024-11-10.md",
+    "General/Structure and Interpretation of Computer Programs.md",
+    "daily/2024-11-16.md",
+    "General/Software Development Glossary.md",
+    "NotePad 2023 2024.md",
+    "daily/2024-09-30.md",
+    "General/Notes.md",
+    "General/Untitled 8.md",
+    "daily/2024-09-23.md",
+    "daily/2024-09-01.md",
+    "Books/The Pragmatic Programmer.md",
+    "daily/2024-08-21.md",
     "General/Dune.md",
     "General/Children of Dune.md",
     "General/God Emperor of Dune.md",
@@ -268,14 +367,6 @@
     "General/Physical Product Ideas.md",
     "General/Strength Training.md",
     "General/Home Gym Setup.md",
-    "daily/2024-08-04.md",
-    "General/Python Features Practical.md",
-    "daily/2024-06-23.md",
-    "General/Untitled 7.md",
-    "daily/2024-07-31.md",
-    "daily/2024-06-19.md",
-    "General/Harvard CS50 (2023).md",
-    "Obsidian/Local Obsidian Setup.md",
     "Article/TheFutureOfLargeLanguageModelPretrainingIsFederated.pdf",
     "Article/WorldwideFederatedTrainingOfLanguageModels.pdf",
     "General/Exercise app ideation.canvas",
