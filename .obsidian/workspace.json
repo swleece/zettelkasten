@@ -8,91 +8,77 @@
         "type": "tabs",
         "children": [
           {
-            "id": "32a195889db2b5ae",
+            "id": "d896270a2d49a583",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/2024-09-30.md",
+                "file": "General/Notepad 2025.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2024-09-30"
+              "title": "Notepad 2025"
             }
           },
           {
-            "id": "27b398116cf4f27e",
+            "id": "c6e0b28904608db2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NotePad 2023 2024.md",
+                "file": "General/2025 Thailand Trip.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "NotePad 2023 2024"
+              "title": "2025 Thailand Trip"
             }
           },
           {
-            "id": "dd747d04a2659cf0",
+            "id": "0abfec50b93f68e3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/2024-11-10.md",
+                "file": "General/Steve and Bug 2025.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2024-11-10"
+              "title": "Steve and Bug 2025"
             }
           },
           {
-            "id": "045c7cce1aea2c14",
+            "id": "d59f34e5b056346a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General/LLM Application Ideas.md",
+                "file": "General/2024 Taxes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "LLM Application Ideas"
+              "title": "2024 Taxes"
             }
           },
           {
-            "id": "a9e766ef7986fb51",
+            "id": "39f0754b1221b52d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General/Stuff l've lost.md",
+                "file": "General/Jane.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Stuff l've lost"
+              "title": "Jane"
             }
           },
           {
-            "id": "aa42513f4c8fc7fe",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "General/Japan Trip Fall 2024.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Japan Trip Fall 2024"
-            }
-          },
-          {
-            "id": "e260a1a927430b0d",
+            "id": "d0214ebddf03cbf3",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -104,9 +90,92 @@
               "icon": "lucide-file",
               "title": "Structure and Interpretation of Computer Programs"
             }
+          },
+          {
+            "id": "a6588b70c46d81a7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/Javascript Features Practical.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Javascript Features Practical"
+            }
+          },
+          {
+            "id": "a66d38d1720c7872",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/React Features Practical.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "React Features Practical"
+            }
+          },
+          {
+            "id": "021d963d575ced72",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/ML Engineer Interview Prep.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ML Engineer Interview Prep"
+            }
+          },
+          {
+            "id": "72b0f12ce522e7d1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/2025 Year of Development.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2025 Year of Development"
+            }
+          },
+          {
+            "id": "b52c765d0014fa0a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/Python Features Practical.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Python Features Practical"
+            }
+          },
+          {
+            "id": "0ad8a695ea79f775",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/LLM Application Ideas.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "LLM Application Ideas"
+            }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "vertical"
@@ -125,7 +194,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": ";;",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -142,7 +211,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "byCreatedTime"
+                "sortOrder": "byCreatedTime",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -164,10 +234,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "General/Structure and Interpretation of Computer Programs.md"
+                "file": "General/thisiscatcommand app.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Structure and Interpretation of Computer Programs"
+              "title": "Outline of thisiscatcommand app"
             }
           },
           {
@@ -181,11 +251,12 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 289.50390243530273
+    "width": 246.5,
+    "collapsed": true
   },
   "right": {
     "id": "b8ec590f60c4f8be",
@@ -335,55 +406,57 @@
       "obsidian-spaced-repetition:Review flashcards": false,
       "obsidian-kanban:Create new board": false,
       "copilot:Copilot Chat": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "e260a1a927430b0d",
+  "active": "d896270a2d49a583",
   "lastOpenFiles": [
-    "Books/StructureAndInterpretationOfComputerPrograms.pdf",
-    "General/Japan Trip Fall 2024.md",
-    "General/Stuff l've lost.md",
+    "General/2024 Taxes.md",
+    "General/Steve and Bug 2025.md",
+    "General/2025 Thailand Trip.md",
+    "General/Notepad 2025.md",
     "General/LLM Application Ideas.md",
-    "daily/2024-11-10.md",
+    "General/Python Features Practical.md",
+    "General/2025 Year of Development.md",
+    "General/ML Engineer Interview Prep.md",
+    "General/React Features Practical.md",
+    "General/Javascript Features Practical.md",
     "General/Structure and Interpretation of Computer Programs.md",
-    "daily/2024-11-16.md",
-    "General/Software Development Glossary.md",
-    "NotePad 2023 2024.md",
-    "daily/2024-09-30.md",
-    "General/Notes.md",
-    "General/Untitled 8.md",
-    "daily/2024-09-23.md",
-    "daily/2024-09-01.md",
-    "Books/The Pragmatic Programmer.md",
-    "daily/2024-08-21.md",
-    "General/Dune.md",
-    "General/Children of Dune.md",
-    "General/God Emperor of Dune.md",
-    "General/Dune Messiah.md",
-    "Books/Ministry for the Future.md",
-    "General/The Pragmatic Programmer.md",
-    "General/Python Learning via Chat.md",
-    "General/Physical Product Ideas.md",
-    "General/Strength Training.md",
-    "General/Home Gym Setup.md",
+    "General/Jane.md",
+    "General/Steve and Bug 2024.md",
+    "Attachments/Pasted image 20250323104931.png",
+    "Attachments/Pasted image 20250323104850.png",
+    "daily/2025-03-23.md",
+    "daily/2025-03-19.md",
+    "daily/2025-03-16.md",
+    "daily/2025-02-23.md",
+    "daily/2025-03-07.md",
+    "daily/2025-03-08.md",
+    "Article/ThePowerOfTenCodingGuidelines.pdf",
+    "Attachments/Pasted image 20250222095801.png",
+    "daily/2024-12-30.md",
+    "daily/2025-02-09.md",
+    "General/Untitled 10.md",
+    "daily/2025-01-28.md",
+    "Attachments/Pasted image 20250212201520.png",
+    "Attachments/Pasted image 20250212201303.png",
+    "Attachments/Pasted image 20250212200036.png",
+    "Attachments/Pasted image 20250212195820.png",
+    "Attachments/Pasted image 20250212195729.png",
+    "Attachments/Pasted image 20250211211644.png",
+    "daily/2025-02-03.md",
+    "daily/2025-01-26.md",
+    "daily/2025-01-02.md",
+    "Attachments/Pasted image 20241120190721.png",
+    "Books/StructureAndInterpretationOfComputerPrograms.pdf",
     "Article/TheFutureOfLargeLanguageModelPretrainingIsFederated.pdf",
     "Article/WorldwideFederatedTrainingOfLanguageModels.pdf",
     "General/Exercise app ideation.canvas",
     "Untitled.canvas",
     "Untitled 2.canvas",
     "Excalidraw",
-    "Attachments/Pasted image 20240317095157.png",
-    "Attachments/Pasted image 20240317094342.png",
-    "Attachments/Pasted image 20240307212821.png",
-    "Attachments/Pasted image 20240307212743.png",
-    "Attachments/Pasted image 20240226204536.png",
     "Attachments/Make It Stick The Science of Successful Learning - kupdf.net_make-it-stick-the-science-of-successful-learning.pdf",
-    "Attachments/Pasted image 20231017074702.png",
-    "Attachments/Pasted image 20230921212634.png",
-    "Attachments/Pasted image 20230921211854.png",
-    "Attachments/Pasted image 20230919215851.png",
-    "Attachments/Pasted image 20230919151601.png",
     "Attachments/Rock Climbing Yosemite Valley 2020 03 13.pdf"
   ]
 }

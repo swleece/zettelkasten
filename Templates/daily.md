@@ -10,17 +10,19 @@ exercise_time:
 resting_heart_rate:
 ---
 
-### Journal
+# Journal
 
-### Learning
+## Learning
 
-### Social
+## Professional
 
-### Exercise
+## Social
 
-### Entertainment
+## Exercise
 
-#### Tasks
+## Entertainment
+
+## Tasks
 
 
 

@@ -98,24 +98,25 @@ only runs if the file was called directly
 ### Example Python Class
 
 ```Python
-class Shape:
+class Shape(Object): # class name and parent class name
     num_shapes = 0  # Class variable
 
-    def __init__(self, name, color):
+    def __init__(self, name, color, corners):
         self.name = name # Instance variable
         self.color = color
+		self._corners = corners
         Shape.num_shapes += 1
 
     def describe(self):  # Instance method
         return f"This is a {self.color} {self.name}."
 
     @staticmethod
-    def validate_color(color):  # Static method
+    def validate_color(color):  # Static method, does not require access to the instance (self) or the class (cls)
         valid_colors = ['red', 'green', 'blue', 'yellow']
         return color.lower() in valid_colors
 
     @classmethod
-    def create_square(cls, side_length, color):  # Class method
+    def create_square(cls, side_length, color):  # Class method, acts on the class (cls) itself 
         if not cls.validate_color(color):
             raise ValueError("Invalid color")
         return cls("square", color)
@@ -123,6 +124,22 @@ class Shape:
     @classmethod
     def get_num_shapes(cls):  # Class method
         return cls.num_shapes
+
+	@property
+	def corners(self):  # property method, allows access like an attribute while still allowing for computation or control
+		return self._corners
+
+	@abstractmethod  # Used in abstract base classes to define methods that must be implemented by subclasses
+	def draw(self):
+		pass  # ensures child classes implement `draw`
+
+
+	# Others:
+	# @dataclass (from dataclasses): simplifies the creation of classes with fields and automatically generates methods like __init__, __repr__, and __eq__
+	# @cached_property (from functools): a property that is computed only once and then cached for future access
+	# @overload (from typing): define multiple type-specific signatures for a method without creating actual implementations for each
+	# - **Purpose:** Enable type hinting for functions with multiple possible argument signatures
+
 
 # Usage
 red_circle = Shape("circle", "red")
@@ -207,6 +224,13 @@ class OneOf(Validator): # `OneOf` verifies that a value is one of a restricted s
 
 ### Python Attribute lookup process
 When you access an attribute using the dot notation (like `a.x`), Python follows a specific lookup order: a. It first checks the instance dictionary. b. If not found, it then looks in the class dictionary. c. If still not found, it checks any base classes (following the method resolution order).
+
+### Information Hiding
+
+Python is not great about information hiding
+- data attributes can be accessed outside the class definition
+- data attributes can be created or updated from outside the class definition
+It is not good style to do any of the above.
 
 
 

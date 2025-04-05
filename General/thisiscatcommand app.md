@@ -25,6 +25,13 @@ tags: project
 
 
 
+
+
+
+
+
+
+
 #### 🧭  Idea Compass
 - West  (similar) 
 [[Svelte]]

@@ -51,6 +51,51 @@ Answer Generation
 	- habit building
 	- task management
 
+## Unit Searcher
+
+build tools for tenants finding better options based on preferences
+	- scraping available rentals
+	- better ways to analyze tradeoffs in a more messy way
+		- price
+		- pet friendliness
+		- proximity to dog parks, parks
+		- proximity to hikes / parks
+		- proximity to gyms}
+		- proximity to workplace
+		- proximity to restaurants, coffee shops
+		- proximity to friends
+		- bedrooms / baths / sq. footage
+		- weighing all these things
+		> *does llm provide any value or are these all just metrics we should build and present*
+		- *is this a service we can sell or no*
+	- maintenance education?
+
+## PR builder and Code Reviewer:
+
+1. build context
+	1. from ticket- requirements
+	2. from repo- project structure, relevant files
+2. propose plan / architecture
+3. implement planned steps
+
+- each step should be collaborative
+- each step should be update-able
+
+>self feedback: how is this different from aider...
+
+PR reviewer:
+- within each repo, have a file that specifies how PR's should be reviewed
+- provide that specification in-context when reviewing a PR
+- provide tooling to easily add additional files to the context of a review if the changes require additional context
+
+
+
+
+
+
+
+
+
 
 
 

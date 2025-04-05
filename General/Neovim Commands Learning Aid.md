@@ -21,15 +21,30 @@ tags:
 ## Motions
 
 `h j k l`
+
 `0` - jump you to start of line
+`$` - to the end of the line, *including* the last character 
+
 `w` - until the start of the next word, *excluding* its first character
 `e` - to the end of the current word, *including* the last character
-`$` - to the end of the line, *including* the last character 
 
 `%` - use to find / jump to a matching `)`, `]`, or `}`
 
-`{`, `}` - as a motion, jump backward / forward *paragraph*
+### text object motions
+
+- **sentence**: defined by '.', '!' or '?' followed by either end of a line or a space or tab
+- **paragraph**: begins after each empty line, and at each of a set of paragraph macros, specified by pairs of characters in the paragraphs option
+	- a section boundary is also a paragraph boundary
+- **section**: begins after a form-feed in the first column and at each of a set of section
+
 `(`, `)` - as a motion, move cursor to beginning of previous / next *sentence*
+`{`, `}` - as a motion, jump backward / forward *paragraph*
+`]]` - as a motion, move *sections* to next "{" in the first column
+`][` - sections 
+`[[` - 
+`[]` - 
+
+
 
 ## Operators
 
@@ -42,6 +57,27 @@ tags:
 
 `<operator>i` - inside, e.g. `di)` to delete inside current parentheses
 `<operator>a` - around, e.g. `da)` to delete around (inclusive) parentheses
+
+`>`, `<` - indent operators, `>ap` : indent around paragraph
+- `>>` - indent line
+- `>as` - indent around sentence
+
+c	change
+d	delete
+y	yank into register (does not change the text)
+~	swap case (only if 'tildeop' is set)
+g~	swap case
+gu	make lowercase
+gU	make uppercase
+!	filter through an external program
+=	filter through 'equalprg' or C-indenting if empty
+gq	text formatting
+gw	text formatting with no cursor movement
+g?	ROT13 encoding
+\>	shift right
+<	shift left
+zf	define a fold
+g@	call function set with the 'operatorfunc' option
 
 ## Commands
 
