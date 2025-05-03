@@ -11,5 +11,6 @@
   "readableLineLength": false,
   "spellcheck": true,
   "promptDelete": false,
-  "propertiesInDocument": "source"
+  "propertiesInDocument": "source",
+  "livePreview": true
 }

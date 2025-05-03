@@ -509,9 +509,81 @@ Stream programming:
 These are like recursive programming, recursively defined data objects instead of recursive procedures. 
 There's no real difference between procedures and data.
 
+**Applicative Order evaluation language**
+- evaluate the arguments, then sub into body of procedure
+vs
+**Normal Order evaluation language**
+- put promises (expressions) in to the body of the procedure until you get down to a primitive operator
+- comes with the price of give up expressivity, hard to express iteration without growing state absurdly ('dragging tail problem')
+- also does not mix well with side effects
 
+The debate over **functional programming**
+- does not have any side effects, more like mathematics than objects in the real world
+- give up assignment for never having synchronization
 
+Ex. see Cesaro test for random number in book
+Ex. Banking system
+- state of user, state of bank account
+- instead of local state, bank account operates on stream of transactions, given an initial balance
 
+Where fp breaks down?
+- objects sharing state
+- e.g. a joint bank account between two users 
+
+How to define languages that can talk about delayed evaluation but also be able reflect the view that there are objects in the world?
+
+## 7A: Metacircular Evaluator, Part 1
+
+Until now, our notation has been a character/string description of a wiring diagram that could be written graphically.
+
+**Universal Machine** 
+`EVAL` - takes as input the description of a machine, such that it can emulate that machine
+The evaluator for lisp - EVAL
+```
+(lambda (EXP ENV)
+  (COND ((NUMBER? EXP) EXP) - special forms ...
+		(( SYMBOL? EXP)(LOOKUP EXP ENVL))
+		(( EQ? (CAR EXP) 'QUOTE) (CADR EXP))
+		(( EQ?(CAR EXP) 'LAMBDA) 
+			(LIST 'CLOSURE (CDR EXP) ENV))
+		((EQ (CAR EXP) 'COND )
+			(EV COND) (CDR EXP) ENV))
+		((ELSE (APPLY (EVAL (CAR EXP ENV) - default
+			EVLIST(CDR EXP) ENV)))))
+```
+`APPLY` - takes a procedure and applies it with arguments
+
+Goes through the exercise of how to define the evaluator in lisp:
+- define EVAL
+- define APPLY
+- define EVLIST
+- define evaluation of conditionals
+- define evaluation of binding variables
+- lookup
+- assq
+
+This is the kernel of every language
+
+Exercise: stepping through in detail an evaluation without assignment (side effects)
+
+EVAL  produces a procedure and arguments (state) for APPLY
+APPLY produces an expression and environment for EVAL
+^ this is done in a loop essentially
+
+## 7B: Metacircular Evaluator, Part 2
+
+example: implementing a procedure that can take one required argument and n args
+- goes over how to represent this syntactically using dot notation
+
+Example
+Dynamic Binding of Variables:
+- problem of unbound variables when desiring to abstract 
+- dynamic variable: a free variable in a procedure has its value defined in the chain of callers, rather than where the procedure is defined
+- how do you guarantee that 
+^Given up in exchange for the modularity principle
+	- define PGEN
+	- define term generation procedures
+	- relies on returning procedures as values
 
 
 

@@ -4703,7 +4703,7 @@ function TranscriptTemplateEngine(template, episode, transcription) {
   return replacer(template);
 }
 function replaceIllegalFileNameCharactersInString(string) {
-  return string.replace(/[\\,#%&{}/*<>$'":@\u2023|\\.]/g, "").replace(/\n/, " ").replace("  ", " ");
+  return string.replace(/[\\,#%&{}/*<>$'":@\u2023|\\.\?]/g, "").replace(/\n/, " ").replace("  ", " ");
 }
 
 // src/opml.ts

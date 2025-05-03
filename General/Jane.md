@@ -58,6 +58,17 @@ Todos:
 	- how to model context and use State objects smartly
 	- how much guardrails, how much freedom
 
+- Langgraph Agent Swarm
+	- essentially uses Command between agent calls to keep 
+	- potentially use to implement a validator agent
+	- potentially use a separate validator agent in a lambda
+		- each subagent and the top agent have a `validator_params` state variable
+		- at each agent handoff, send the validator params to the validator agent in a separate lambda (to avoid increasing latency)
+		- alternatively, wait for the validator output at each handoff and kick it back if the validator decides it was wrong
+			- is this just overcomplicating? what benefit do you have of using a validator agent rather than building this into each graph
+			- params: messages, input (prompt, available tools), output (tool, tool params),  evaluator_prompt_1, evaluator_prompt_2...
+		- 
+
 ### Goals Manager
 
 - Goals CRUD
@@ -80,7 +91,15 @@ Todos:
 - store each thread in the db?
 - store summary of thread in the db?
 - store record of actions taken
-- 
+
+### Memory
+
+- long term memories
+- store long term memories after action confirmed
+	- or when a data response has been liked?
+- how to resurface memories in future prompts?
+	- simple prompt injection with vdb similarity?
+	- tool calling to fetch similar past memories when uncertain?
 
 ### Evals 
 
@@ -100,3 +119,6 @@ Requirements:
 Some of my ideas currently:
 
 - my app does not currently have a way to run scheduled jobs. I could build a way to run a scheduled job that initiates a conversation in case 2
+
+
+
