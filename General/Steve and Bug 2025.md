@@ -67,6 +67,19 @@ Thursday
 
 
 
+## Wedding Preparations
+
+See also [[2025 Wedding Notes]]
+
+- Bug creates many fantastical items
+	- save the dates, wedding invites, coloring books, stickers, thank you cards
+
+
+## Climbing trips
+
+- Steve gets out for some Spring climbing with friends
+
+## The Wedding!!
 
 
 

@@ -585,8 +585,31 @@ Dynamic Binding of Variables:
 	- define term generation procedures
 	- relies on returning procedures as values
 
+## 8A: Logic Programming, Part 1
 
+You can create a programming language to minimize complexity.
+Programming can really be thought as a medium for communication.
 
+Consider a programming language that works only with a set of facts declared.
+Declarative knowledge can go to how-to knowledge, baked into the language.
+*Rules of Inference*
+if the son of X is Y, and the son of Y is Z, then the grandson of x is Z.j
+
+A language of relations with logic built in
+This is called **Logic Programming**
+'use logic to express what is true, to check whether something is true, to find out what is true'
+Prologue language
+
+Questions to ask of any new language you learn:
+What are the Primitives? what are the means of combination? what are the means of abstraction?
+
+Example: writing a query language to answer questions about the employees at a company and their roles and managers
+
+means of combination: things like AND, NOT, OR
+means of abstraction: X is a bigshot if X works in Y department and X has supervisor that does not work int Y department
+- rule of conclusion and rule body
+
+## 8B: 
 
 
 

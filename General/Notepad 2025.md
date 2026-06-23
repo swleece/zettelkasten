@@ -1,9 +1,3 @@
-Meeting with Cara
-- link active for a year
-	- can share
-- ~100 / hr
-- 2nd balance due 2 weeks before wedding
-
 Thai Phrases:
 
 why - (with palms pressed) show respect
@@ -42,22 +36,58 @@ IONQ
 4/6
 - ideas for website blurb:
 
-potentially pull out bug quotes
-Anecdote:
-A young Driskel family sent out a Christmas card in which Patty and Dana describe their young daughters with shocking accuracy, especially with respect to then 2 year old Bug.
-"Jean is the artist, the theatrical one, the animal lover. Julianna is the terrorist, the technician, the athlete. Jean is a blond, blue eyed California Girl stereotype. Julianna is a red head with the stereotypical temper, but a great sense of humor to balance it."
-I can't read this without smiling at the thought of a wild toddler Bug.
-The quote inspires a couple memories for me:
-- Early in our relationship, when I had only met Patty and Dana a handful of times, she abruptly pulled over, grabbed a rentable electric scooter off the sidewalk and threw it into her car. It was a novelty she wanted to drive up the hill to show to her parents.
-- Running trails in Joshua Tree National Park after work when we planned to run a marathon. We haven't yet run marathon but enjoying the sunsets together on those runs remains a wonderful memory.
+5/3
+- pack climbing stuff for pine creek weekend
+- buy climbing / camping stuff identified (iphone notes)
+	- foam pad
+	- better ground cover for air pad? (or thin 3mm evazote foam pad)
+	- jet boil or equivalent?
+	- camp pants?
+	- big pack
+	- soft silicone water bags for on the harness 
+	- charge electronics
+	- grocery shopping
+	- 
 
-As a partner in life, I've grown to appreciate Julianna's depth of character.
-She dedicates herself to building strong relationships and is loyal and supportive of those she loves. 
-She is also a singular thinker with a strong imagination and a unique view of the world. We often tell each other about our dreams in the morning, and I can tell you that her brain explores far more fantastical places than mine.
-
-In the fullness of time, I think we'll find that early read of Bug to be as true at 2 as it is at 92. 
+- Bachelor Party - ish
+	- reach out to Job and Breneman about hanging out in SD
+	- Michael and Jono?
 
 
+6/16
+- ~~Message Nate and Ximeng about climbing
+- ~~find pants and shirt for saturday
+- ~~book flight from Sac 4th july
+- ~~request time off for wedding
 
-*Pop tart tastings during lockdown, dinner parties*
-*Supporting each other through job interview process*
+- call and response guest vows to us
+
+7/13
+- leetcode problem
+- develop Jane instructions file - focus on python OOP best practices
+
+- group message to connect with the draughtsmen events person
+- update food tab with details about presentation layout, pre-prep work, tasks for Francesca,
+	- we'll prep crudete at Leanne's on Thursday?
+	- 6 quarts hummus, 6 quarts babaganoush, pita, crudete
+	- hummus out for appetizers pre-ceremony
+
+8/31
+- voice app using openai new realtime api
+- social second brain
+- continue development of Jane
+- pico lm project
+- lambda-based self-evaluations in a langgraph project
+- 
+
+9/28
+- build file system mcp server for notes repo as an exercise
+	- any other ideas for toy mcp servers?
+	- does it make sense to host an mcp server and charge for it? any ideas there?
+- look into OpenAI-specific voice agent implementation
+	- speech-to-speech main agent that can converse nicely and
+		- route to speech-to-text-to-speech sub agents for specific data collection like:
+		- recording specific exercises done
+		- recording perceived exertion and how you felt doing the exercise etc.
+		- memory management
+		- 

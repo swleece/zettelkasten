@@ -8,118 +8,147 @@
         "type": "tabs",
         "children": [
           {
-            "id": "1b2c7d5d1d38d13e",
+            "id": "ec8a1298b6077452",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General/Structure and Interpretation of Computer Programs.md",
+                "file": "daily/2026-03-07.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Structure and Interpretation of Computer Programs"
+              "title": "2026-03-07"
             }
           },
           {
-            "id": "0abfec50b93f68e3",
+            "id": "1c687d535d656765",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General/Steve and Bug 2025.md",
+                "file": "General/Notepad 2025.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Steve and Bug 2025"
+              "title": "Notepad 2025"
             }
           },
           {
-            "id": "a6588b70c46d81a7",
+            "id": "143dcb5b4b497e18",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General/Javascript Features Practical.md",
+                "file": "General/Jane.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Javascript Features Practical"
+              "title": "Jane"
             }
           },
           {
-            "id": "a66d38d1720c7872",
+            "id": "bed20ec406a20dfe",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General/React Features Practical.md",
+                "file": "daily/2026-03-18.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "React Features Practical"
+              "title": "2026-03-18"
             }
           },
           {
-            "id": "021d963d575ced72",
+            "id": "a170ae1da49bdf70",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General/ML Engineer Interview Prep.md",
+                "file": "General/Notepad 2026.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ML Engineer Interview Prep"
+              "title": "Notepad 2026"
             }
           },
           {
-            "id": "72b0f12ce522e7d1",
+            "id": "a22775353105c5e9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General/2025 Year of Development.md",
+                "file": "General/breathtaking app.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025 Year of Development"
+              "title": "breathtaking app"
             }
           },
           {
-            "id": "b52c765d0014fa0a",
+            "id": "0b5d9f52cbe2dd69",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General/Python Features Practical.md",
+                "file": "General/Personal Investment Strategies.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Python Features Practical"
+              "title": "Personal Investment Strategies"
             }
           },
           {
-            "id": "0ad8a695ea79f775",
+            "id": "3f9d4f660c2801c3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General/LLM Application Ideas.md",
+                "file": "daily/2026-03-29.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "LLM Application Ideas"
+              "title": "2026-03-29"
+            }
+          },
+          {
+            "id": "5012b5d6945d2d89",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/Untitled 10.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled 10"
+            }
+          },
+          {
+            "id": "6caf3aa641c75dfc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "General/Physical Product Ideas.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Physical Product Ideas"
             }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -168,8 +197,8 @@
             "state": {
               "type": "starred",
               "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "icon": "lucide-ghost",
+              "title": "starred"
             }
           },
           {
@@ -194,12 +223,12 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 246.5
+    "width": 246.5,
+    "collapsed": true
   },
   "right": {
     "id": "b8ec590f60c4f8be",
@@ -291,7 +320,7 @@
             }
           },
           {
-            "id": "c701b60429872022",
+            "id": "66b6e306ee166458",
             "type": "leaf",
             "state": {
               "type": "review-queue-list-view",
@@ -301,7 +330,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 6
       },
       {
         "id": "0fbce4cdee0eefe1",
@@ -338,6 +367,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -353,39 +383,40 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1b2c7d5d1d38d13e",
+  "active": "0b5d9f52cbe2dd69",
   "lastOpenFiles": [
-    "daily/2025-05-02.md",
-    "General/Structure and Interpretation of Computer Programs.md",
-    "daily/2025-04-30.md",
-    "General/Notepad 2025.md",
-    "daily/2025-04-29.md",
-    "Untitled.canvas",
-    "Jane_Brainstorming.canvas",
-    "General/2024 Taxes.md",
+    "General/breathtaking app.md",
+    "General/Personal Investment Strategies.md",
+    "General/Notepad 2026.md",
+    "daily/2026-03-18.md",
     "General/Jane.md",
-    "General/LLM Application Ideas.md",
+    "General/Notepad 2025.md",
+    "daily/2026-03-07.md",
+    "daily/2026-03-29.md",
+    "daily/2026-03-23.md",
+    "General/202603 China-Korea-Taiwan Trip.md",
+    "General/2024 Taxes.md",
+    "General/Physical Product Ideas.md",
+    "General/Pydantic Features.md",
+    "General/Python standard library.md",
     "General/Python Features Practical.md",
-    "General/2025 Year of Development.md",
-    "General/ML Engineer Interview Prep.md",
-    "General/React Features Practical.md",
-    "General/Javascript Features Practical.md",
-    "General/Steve and Bug 2025.md",
-    "General/2025 Thailand Trip.md",
-    "General/Steve and Bug 2024.md",
+    "daily/2025-11-16.md",
+    "daily/2026-02-01.md",
+    "daily/2026-01-31.md",
+    "General/Untitled 10.md",
+    "daily/2026-02-28.md",
+    "General/LLM Application Ideas.md",
+    "General/TidalCycle.md",
+    "General/Structure and Interpretation of Computer Programs.md",
+    "daily/2025-09-01.md",
+    "General/Python.md",
+    "Templates/technical.md",
+    "Jane_Brainstorming.canvas",
+    "Untitled.canvas",
     "Attachments/Pasted image 20250323104931.png",
     "Attachments/Pasted image 20250323104850.png",
-    "daily/2025-03-23.md",
-    "daily/2025-03-19.md",
-    "daily/2025-03-16.md",
-    "daily/2025-02-23.md",
-    "daily/2025-03-07.md",
-    "daily/2025-03-08.md",
     "Article/ThePowerOfTenCodingGuidelines.pdf",
     "Attachments/Pasted image 20250222095801.png",
-    "daily/2024-12-30.md",
-    "daily/2025-02-09.md",
-    "General/Untitled 10.md",
     "Attachments/Pasted image 20250212201520.png",
     "Attachments/Pasted image 20250212201303.png",
     "Attachments/Pasted image 20250212200036.png",

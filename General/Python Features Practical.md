@@ -2,7 +2,7 @@
 date: 2023-12-22
 time: 07:57
 note_maturity: 🌱
-tags:
+tags: technical
 ---
 # Python Features Practical
 

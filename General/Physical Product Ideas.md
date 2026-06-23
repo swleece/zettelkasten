@@ -30,12 +30,24 @@ Snow density measurement for avalanche risk prediction:
 - simple gravimetric
 	- can you measure the weight of snow at fine enough resolution
 
+A Better follower pack:
+- constructed with haul bag material
+- asymmetric cone attachment point with flatter edge or some other clever method to enable pulling over lips
+- wide and shallow, hugs tight to the lower back
+	- relatively small contact area with the back to limit trapping heat
+	- potentially have detachable, wicking, contact material with back
+- expandable upper section (roll top? modular?)
+- shrinks down to a buoy like shape when trailed
+- can be enchained one on top of the other
+- potentially have spooled dyneema tag line built in for hauling
+- some form of access that is safe and easy while the bag is clipped into the anchor
+- potentially include a way to enchain shoes below the bag with a hood to protect them
 
+Clothing line for climbers that reflects heat from sun and from rock face
+Mushroom leather crack gloves, climbing gloves, knee pads, clothing, etc.
 
-
-
-
-
+Water-based resistance stair stepper
+Mechanical braking resistance stair stepper or treadmill
 
 
 

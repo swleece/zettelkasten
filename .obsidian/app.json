@@ -12,5 +12,6 @@
   "spellcheck": true,
   "promptDelete": false,
   "propertiesInDocument": "source",
-  "livePreview": true
+  "livePreview": true,
+  "openBehavior": "daily"
 }

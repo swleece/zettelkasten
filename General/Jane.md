@@ -9,22 +9,25 @@ tags:
 # Jane
 
 Todos:
-- start new conversation automatically after CRUD operation completion
-	- `action_executed`
 - set and use backend_host as global env variable
-- validation loop and creation of evaluations / samples?
+	- validation loop and creation of evaluations / samples?
+- Clean up interrupt pattern (run agent vs resume agent)
+- add seed sqlite db to source
+- add langchain
 
 ## Architecture and Design
 
 ### CRUD
 
 - Models:
-		- messages
+	- messages
 	- todos
 - Potential Models:
 	- summary of day's conversation (short term memory summarization)
 	- goals
 	- daily note including updates relevant to a given goal
+
+## Ideas:
 
 ### Conversational Data Collection
 
@@ -37,10 +40,6 @@ Todos:
 	- provide the last 2 weeks? of updates as context so that the llm can provide a more contextual, personalized question/message
 - Idea:
 	- run a scribe_recorder agent in parallel for every message that tries to extract an update for each message when not interviewing user. Templatize the prompt to include the user's existing goals (fetched from db)
-	- 
-
-
-## Ideas:
 
 ### Advanced context management
 
@@ -67,12 +66,6 @@ Todos:
 		- alternatively, wait for the validator output at each handoff and kick it back if the validator decides it was wrong
 			- is this just overcomplicating? what benefit do you have of using a validator agent rather than building this into each graph
 			- params: messages, input (prompt, available tools), output (tool, tool params),  evaluator_prompt_1, evaluator_prompt_2...
-		- 
-
-### Goals Manager
-
-- Goals CRUD
-- connect goals to tasks in reports
 
 ### Task Tracking and Report Generation
 
@@ -80,13 +73,15 @@ Todos:
 - Note writer should use structured output to ensure format is respected. 
 - Create a report generator that summarizes tasks completed and creates a report recommending my promotion. 
 - Create a report generator that reports on recent activity levels by desired metrics. 
+- connect goals to tasks in reports
 
 ### Interview Mode / Data Collection Mode
 
 - Build an interview-like mode that proactively asks for data from your day. 
 - ask about exercise, learnings, etc.
+- run as a scheduled job?
 
-### Thread management and Persistence
+### Chat Thread Management and Persistence
 
 - store each thread in the db?
 - store summary of thread in the db?
@@ -104,21 +99,8 @@ Todos:
 ### Evals 
 
 - investigate `deepeval` 
+- investigate langchain trajectory evals
 
+### MCP
 
-
-## Brainstorming
-
-I'm building a conversational AI chat bot powered by an LLM to track my habits and goals. Can you help me brainstorm design ideas for an input mode where the chat bot will proactively ask the user for updates from the day?
-
-Requirements:
-
-1. the bot should only ask for updates if an update hasn't already been provided in the chat history for the current day
-2. the bot should proactively reach out to the user in the evening if no updates have been given
-
-Some of my ideas currently:
-
-- my app does not currently have a way to run scheduled jobs. I could build a way to run a scheduled job that initiates a conversation in case 2
-
-
-
+What MCP tools could be useful to Jane?
